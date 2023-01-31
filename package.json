@@ -1,0 +1,14 @@
+{
+  "name": "uncanny canyon",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "devDependencies": {
+    "vite": "^4.0.4"
+  },
+  "dependencies": {
+    "three": "^0.148.0"
+  }
+}
