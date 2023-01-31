@@ -1,5 +1,5 @@
 {
-  "name": "uncanny canyon",
+  "name": "uncanny-canyon",
   "type": "module",
   "scripts": {
     "dev": "vite",
