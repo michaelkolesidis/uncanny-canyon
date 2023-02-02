@@ -6,7 +6,8 @@ export default {
   base: "./",
   server: {
     host: true,
-    open: !isCodeSandbox, // Open if it's not a CodeSandbox
+    open: false, 
+    // open: !isCodeSandbox, // Open if it's not a CodeSandbox
   },
   build: {
     outDir: "../dist",

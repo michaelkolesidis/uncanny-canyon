@@ -19,7 +19,6 @@
 // Beyond that, no further copies of works of art may be made or
 // distributed on this website without written permission.
 
-
 import * as THREE from "three";
 import Stats from "three/addons/libs/stats.module.js";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
@@ -32,20 +31,35 @@ import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass.js";
 import { DotScreenPass } from "three/examples/jsm/postprocessing/DotScreenPass.js";
 import { ShaderPass } from "three/examples/jsm/postprocessing/ShaderPass.js";
 import { GammaCorrectionShader } from "three/examples/jsm/shaders/GammaCorrectionShader.js";
+import { Howl, Howler } from "howler";
 
+/**
+ * Basics
+ */
+// Debug panel
+const gui = new GUI({ width: 200 });
+gui.show(gui._hidden);
+
+// Container
+const container = document.getElementById("container");
+
+// Scene
 const scene = new THREE.Scene();
-// scene.background = new THREE.Color(0x88ccee);
-// scene.background = new THREE.Color(0x000000);
-// scene.fog = new THREE.Fog(0x88ccee, 0, 50); // TODO: Think about fog
 
-const camera = new THREE.PerspectiveCamera(
-  70,
-  window.innerWidth / window.innerHeight,
-  0.1,
-  1000
-);
-camera.rotation.order = "YXZ";
+// Stats
+const stats = new Stats();
+stats.domElement.style.position = "absolute";
+stats.domElement.style.top = "0px";
+// container.appendChild(stats.domElement);
 
+/**
+ * Loader
+ */
+const loader = new GLTFLoader().setPath("./models/gltf/");
+
+/**
+ * Lights
+ */
 const fillLight1 = new THREE.HemisphereLight(0x4488bb, 0x002244, 2.0);
 fillLight1.position.set(2, 1, 1);
 scene.add(fillLight1);
@@ -65,13 +79,20 @@ directionalLight.shadow.radius = 4;
 directionalLight.shadow.bias = -0.00006;
 scene.add(directionalLight);
 
-const container = document.getElementById("container");
+/**
+ * Camera
+ */
+const camera = new THREE.PerspectiveCamera(
+  70,
+  window.innerWidth / window.innerHeight,
+  0.1,
+  1000
+);
+camera.rotation.order = "YXZ";
 
-const stats = new Stats();
-stats.domElement.style.position = "absolute";
-stats.domElement.style.top = "0px";
-container.appendChild(stats.domElement);
-
+/**
+ * World, Player, Spheres and Controls
+ */
 const GRAVITY = 30;
 
 const NUM_SPHERES = 100;
@@ -150,15 +171,6 @@ document.body.addEventListener("mousemove", (event) => {
     camera.rotation.x -= event.movementY / 500;
   }
 });
-
-window.addEventListener("resize", onWindowResize);
-
-function onWindowResize() {
-  camera.aspect = window.innerWidth / window.innerHeight;
-  camera.updateProjectionMatrix();
-
-  renderer.setSize(window.innerWidth, window.innerHeight);
-}
 
 function throwBall() {
   const sphere = spheres[sphereIdx];
@@ -359,8 +371,6 @@ function controls(deltaTime) {
   }
 }
 
-const loader = new GLTFLoader().setPath("./models/gltf/");
-
 loader.load("collision-world.glb", (gltf) => {
   scene.add(gltf.scene);
 
@@ -381,7 +391,7 @@ loader.load("collision-world.glb", (gltf) => {
   // orange 255, 106, 0
   // greenish 0, 255, 162
   // green 58, 176, 49
-  // brownish-goldish 199, 154, 115 *
+  // brownish-goldish 199, 154, 115 hex: c79a71 *
   // purple 153, 0, 255
 
   document.body.style.backgroundColor = `rgb(199, 154, 115)`;
@@ -390,7 +400,6 @@ loader.load("collision-world.glb", (gltf) => {
   helper.visible = false;
   scene.add(helper);
 
-  const gui = new GUI({ width: 200 });
   gui.add({ debug: false }, "debug").onChange(function (value) {
     helper.visible = value;
   });
@@ -511,7 +520,7 @@ depthMaterial.onBeforeCompile = (shader) => {
 
 // Positions
 const headPositions = [
-  { x: -35.0945, y: -0.4735, z: -44.6278 },
+  { x: -40.5746, y: -0.4735, z: -30.7728 },
   { x: 60.2514, y: -0.4735, z: -238.7286 },
   { x: 41.5429, y: 14.1217, z: -171.182 },
   { x: -10.5056, y: -0.4735, z: -258.0651 },
@@ -524,18 +533,17 @@ const headPositions = [
   { x: -123.9297, y: 74.12, z: -483.6523 },
 ];
 
-const head1position = new THREE.Vector3(-35.0945, -0.4735, -44.6278);
-const head2position = new THREE.Vector3(-35.0945, -0.4735, -44.6278);
-const head3position = new THREE.Vector3(60.2514, -0.4735, -238.7286);
-const head4position = new THREE.Vector3(41.5429, 14.1217, -171.182);
-const head5position = new THREE.Vector3(-10.5056, -0.4735, -258.0651);
-const head6position = new THREE.Vector3(-38.1468, 31.3499, -242.9543);
-const head7position = new THREE.Vector3(-72.7389, 51.9802, -99.3168);
-const head8position = new THREE.Vector3(-44.1077, -0.5448, -196.664);
-const head9position = new THREE.Vector3(-117.5158, 36.89917, -346.7087);
-const head10position = new THREE.Vector3(-80.6312, -0.4735, -394.5718);
-const head11position = new THREE.Vector3(-87.8377, 2.9657, -505.6204);
-const head12position = new THREE.Vector3(-123.9297, 74.12, -483.6523);
+const head1position = new THREE.Vector3(-40.5746, -0.4735, -30.7728);
+const head2position = new THREE.Vector3(60.2514, -0.4735, -238.7286);
+const head3position = new THREE.Vector3(41.5429, 14.1217, -171.182);
+const head4position = new THREE.Vector3(-10.5056, -0.4735, -258.0651);
+const head5position = new THREE.Vector3(-38.1468, 31.3499, -242.9543);
+const head6position = new THREE.Vector3(-72.7389, 51.9802, -99.3168);
+const head7position = new THREE.Vector3(-44.1077, -0.5448, -196.664);
+const head8position = new THREE.Vector3(-117.5158, 36.89917, -346.7087);
+const head9position = new THREE.Vector3(-80.6312, -0.4735, -394.5718);
+const head10position = new THREE.Vector3(-87.8377, 2.9657, -505.6204);
+const head11position = new THREE.Vector3(-123.9297, 74.12, -483.6523);
 
 // Model Loading
 loader.load("/LeePerrySmith/LeePerrySmith.glb", (gltf) => {
@@ -574,6 +582,7 @@ loader.load("/LeePerrySmith/LeePerrySmith.glb", (gltf) => {
  */
 function teleportPlayerIfOob() {
   if (camera.position.y <= -25) {
+    noEscapeFromReality.play();
     playerCollider.start.set(0, 0.35, 0);
     playerCollider.end.set(0, 1, 0);
     playerCollider.radius = 0.35;
@@ -583,10 +592,31 @@ function teleportPlayerIfOob() {
 }
 
 /**
+ * Other Positions
+ */
+const caveEntrance = new THREE.Vector3(-15.6653, -0.4736, -18.6151);
+
+/**
+ * Resize
+ */
+window.addEventListener("resize", onWindowResize);
+
+function onWindowResize() {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+  effectComposer.setSize(window.innerWidth, window.innerHeight);
+  effectComposer.setSize(window.innerWidth, window.innerHeight);
+}
+
+/**
  * Renderer
  */
 const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-renderer.setPixelRatio(window.devicePixelRatio);
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.shadowMap.enabled = true;
 renderer.shadowMap.type = THREE.VSMShadowMap;
@@ -622,47 +652,101 @@ effectComposer.addPass(gammaCorrectionPass);
 /**
  * Animate
  */
+let isSpeaking = false;
 
 const clock = new THREE.Clock();
 function animate() {
   const deltaTime = Math.min(0.05, clock.getDelta()) / STEPS_PER_FRAME;
 
-  // Distance from heads
-  if (camera.position.distanceTo(head1position) < 10) {
-    console.log("near head 1");
+  /**
+   * Trigger Sounds
+   */
+  // Cave Entrance
+  if (camera.position.distanceTo(caveEntrance) < 5) {
+    if (isSpeaking === false && caveHasSpoken === false) {
+      isSpeaking = true;
+      caveHasSpoken = true;
+      listenPatiently.play();
+    }
   }
+
+  // Head 1
+  if (camera.position.distanceTo(head1position) < 10) {
+    if (isSpeaking === false && head1HasSpoken === false) {
+      isSpeaking = true;
+      head1HasSpoken = true;
+      weAreAllHumans.play();
+
+      setTimeout(() => {
+        weAreTheSame.play();
+      }, 5000);
+    }
+  }
+
+  // Head 2
   if (camera.position.distanceTo(head2position) < 10) {
     console.log("near head 2");
   }
+
+  // Head 3
   if (camera.position.distanceTo(head3position) < 10) {
     console.log("near head 3 ");
   }
+
+  // Head 4
   if (camera.position.distanceTo(head4position) < 10) {
     console.log("near head 4");
   }
+
+  // Head 5
   if (camera.position.distanceTo(head5position) < 10) {
     console.log("near head 5");
   }
+
+  // Head 6
   if (camera.position.distanceTo(head6position) < 10) {
     console.log("near head 6");
   }
+
+  // Head 7
   if (camera.position.distanceTo(head7position) < 10) {
-    console.log("near head 7");
+    if (isSpeaking === false && head7HasSpoken === false) {
+      isSpeaking = true;
+      head7HasSpoken = true;
+      thisIsNotAStory.play();
+
+      setTimeout(() => {
+        thisIsNotAWarning.play();
+      }, 5000);
+
+      setTimeout(() => {
+        thisIsNotEphemeral.play();
+      }, 10000);
+
+      setTimeout(() => {
+        thisIsNeitherTheFutureNorThePast.play();
+      }, 15000);
+    }
   }
+
+  // Head 8
   if (camera.position.distanceTo(head8position) < 10) {
     console.log("near head 8");
   }
+
+  // Head 9
   if (camera.position.distanceTo(head9position) < 10) {
     console.log("near head 9");
   }
+
+  // Head 10
   if (camera.position.distanceTo(head10position) < 10) {
     console.log("near head 10");
   }
+
+  // Head 11
   if (camera.position.distanceTo(head11position) < 10) {
     console.log("near head 11");
-  }
-  if (camera.position.distanceTo(head12position) < 10) {
-    console.log("near head 12");
   }
 
   // Update material
@@ -684,6 +768,111 @@ function animate() {
   stats.update();
   requestAnimationFrame(animate);
 }
+
+/**
+ * Sound
+ */
+let caveHasSpoken = false;
+let head1HasSpoken = false;
+let head2HasSpoken = false;
+let head3HasSpoken = false;
+let head4HasSpoken = false;
+let head5HasSpoken = false;
+let head6HasSpoken = false;
+let head7HasSpoken = false;
+let head8HasSpoken = false;
+let head9HasSpoken = false;
+let head10HasSpoken = false;
+let head11HasSpoken = false;
+
+// === General ===
+// Ambiance
+const ambiance = new Howl({
+  src: ["./sound/ambient/deep-space-ambiance.mp3"],
+  autoplay: true,
+  loop: true,
+  volume: 0.25,
+});
+
+// No escape from reality
+const noEscapeFromReality = new Howl({
+  src: ["./sound/speech/no-escape-from-reality.mp3"],
+  volume: 0.25,
+});
+
+// === Cave ===
+// Listen patiently
+const listenPatiently = new Howl({
+  src: ["./sound/speech/listen-patiently.mp3"],
+  volume: 0.25,
+  onend: function () {
+    isSpeaking = false;
+  },
+});
+
+// === Head 1 ===
+// We are all humans
+const weAreAllHumans = new Howl({
+  src: ["./sound/speech/we-are-all-humans.mp3"],
+  volume: 0.25,
+  played: false,
+  onend: function () {
+    isSpeaking = false;
+  },
+});
+
+// We are the same
+const weAreTheSame = new Howl({
+  src: ["./sound/speech/we-are-the-same.mp3"],
+  volume: 0.25,
+  played: false,
+  onend: function () {
+    isSpeaking = false;
+  },
+});
+
+// === Head 7 ===
+const thisIsNotAStory = new Howl({
+  src: ["./sound/speech/this-is-not-a-story.mp3"],
+  volume: 0.25,
+  played: false,
+  onend: function () {
+    isSpeaking = false;
+  },
+});
+
+const thisIsNotAWarning = new Howl({
+  src: ["./sound/speech/this-is-not-a-warning.mp3"],
+  volume: 0.25,
+  played: false,
+  onend: function () {
+    isSpeaking = false;
+  },
+});
+
+const thisIsNotEphemeral = new Howl({
+  src: ["./sound/speech/this-is-not-ephemeral.mp3"],
+  volume: 0.25,
+  played: false,
+  onend: function () {
+    isSpeaking = false;
+  },
+});
+
+const thisIsNeitherTheFutureNorThePast = new Howl({
+  src: ["./sound/speech/this-is-neither-the-future-nor-the-past.mp3"],
+  volume: 0.25,
+  played: false,
+  onend: function () {
+    isSpeaking = false;
+  },
+});
+
+// document.addEventListener("keydown", (e) => {
+//   if (e.code === "KeyM") {
+//     ambiance.play();
+//   }
+// });
 
 /**
  * Development Tools
