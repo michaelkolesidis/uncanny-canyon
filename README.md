@@ -1,7 +1,9 @@
-# uncanny canyon by michael kolesidis
+# uncanny canyon
 
+by michael kolesidis
 
 ## Technologies Used
+
 three.js
 Howler.js
 OpenGL Shading Language

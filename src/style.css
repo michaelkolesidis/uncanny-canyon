@@ -1,58 +1,85 @@
-body {
+:root {
+  --white: #ffffff;
+  --black: #000000;
+  --main: rgb(199, 154, 115);
+}
+
+* {
   margin: 0;
-  background-color: rgb(0, 0, 0);
-  color: #fff;
-  font-family: Monospace;
+  padding: 0;
+  user-select: none;
+  font-family: sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--black);
+  color: var(--white);
   font-size: 13px;
-  line-height: 24px;
   overscroll-behavior: none;
 }
 
-/* body {
-	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-	background-size: 400% 400%;
-	animation: gradient 15s ease infinite;
-	height: 100vh;
-}
-
-@keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% { 
-		background-position: 0% 50%;
-	}
-} */
-
-#info {
-  position: absolute;
-  top: 0px;
-  width: 100%;
-  padding: 10px;
-  box-sizing: border-box;
-  text-align: center;
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  pointer-events: none;
-  z-index: 1; /* TODO Solve this in HTML */
-}
-
 .lil-gui {
-  z-index: 2 !important; /* TODO Solve this in HTML */
+  z-index: 2;
 }
 
-@media all and (max-width: 640px) {
-  .lil-gui.root {
-    right: auto;
-    top: auto;
-    max-height: 50%;
-    max-width: 80%;
-    bottom: 0;
-    left: 0;
-  }
+#main-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: var(--black);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 3s ease-in-out;
+}
+
+#heading {
+  font-size: 10em;
+  line-height: 0.7em;
+  font-weight: 900;
+  text-align: left;
+  margin-left: 0.5em;
+}
+
+#enter-button {
+  background: none;
+  color: var(--white);
+  border: 2px solid var(--white);
+  padding: 0.3em 0.5em;
+  margin: 4em 0 1.4em 0;
+  cursor: pointer;
+  font-size: 3em;
+  font-weight: 900;
+  width: 10em;
+}
+
+#enter-button:hover {
+  color: var(--main);
+  border: 2px solid var(--main);
+}
+
+#enter-button:active {
+  transform: scale(0.98);
+}
+
+#instructions {
+  font-size: 1.4em;
+  text-align: left;
+  max-width: 40ch;
+  letter-spacing: 0.15em;
+  text-align: justify;
+  text-justify: auto;
+}
+
+#credits {
+  font-size: 1.6em;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 1rem;
+  font-weight: 900;
 }

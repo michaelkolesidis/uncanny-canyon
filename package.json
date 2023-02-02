@@ -1,5 +1,6 @@
 {
   "name": "uncanny-canyon",
+  "author": "Michael Kolesidis",
   "type": "module",
   "scripts": {
     "dev": "vite",

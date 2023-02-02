@@ -48,9 +48,54 @@ const scene = new THREE.Scene();
 
 // Stats
 const stats = new Stats();
-stats.domElement.style.position = "absolute";
-stats.domElement.style.top = "0px";
+// stats.domElement.style.position = "absolute";
+// stats.domElement.style.top = "0px";
 // container.appendChild(stats.domElement);
+
+/**
+ * Main Menu
+ */
+const mainMenu = document.createElement("div");
+mainMenu.setAttribute("id", "main-menu");
+
+const heading = document.createElement("div");
+heading.setAttribute("id", "heading");
+heading.innerHTML = "uncanny<br>canyon";
+mainMenu.appendChild(heading);
+
+const enterButton = document.createElement("button");
+enterButton.setAttribute("id", "enter-button");
+enterButton.innerText = "loading";
+mainMenu.appendChild(enterButton);
+
+const credits = document.createElement("div");
+credits.setAttribute("id", "credits");
+credits.innerHTML = `michael kolesidis`;
+mainMenu.appendChild(credits);
+
+const instructions = document.createElement("div");
+instructions.setAttribute("id", "instructions");
+instructions.innerHTML += `Please use headphones for a better experience. `;
+instructions.innerHTML += `Try pressing the WASD keys to move forward, left, back, and right respectively. You can also use the ARROW keys. `;
+instructions.innerHTML += `You can look around by moving your MOUSE around (right-click to lock, ESC to unlock). `;
+instructions.innerHTML += `You can jump by pressing SPACE. `;
+instructions.innerHTML += `Do not forget to breathe. `;
+mainMenu.appendChild(instructions);
+
+document.body.appendChild(mainMenu);
+
+enterButton.addEventListener("click", () => {
+  mainMenu.style.opacity = 0;
+  mainMenu.style.pointerEvents = "none";
+  document.body.style.backgroundColor = `rgb(199, 154, 115)`;
+  document.body.requestPointerLock();
+  mouseTime = performance.now();
+  djembe.play();
+
+  setTimeout(() => {
+    ambiance.play();
+  }, 1000);
+});
 
 /**
  * Loader
@@ -159,7 +204,7 @@ container.addEventListener("mousedown", () => {
 document.addEventListener("mouseup", () => {
   if (!firstClick) {
     if (document.pointerLockElement !== null) {
-      throwBall();
+      // throwBall();
     }
   }
   firstClick = false;
@@ -387,15 +432,6 @@ loader.load("collision-world.glb", (gltf) => {
     }
   });
 
-  // Other color options
-  // orange 255, 106, 0
-  // greenish 0, 255, 162
-  // green 58, 176, 49
-  // brownish-goldish 199, 154, 115 hex: c79a71 *
-  // purple 153, 0, 255
-
-  document.body.style.backgroundColor = `rgb(199, 154, 115)`;
-
   const helper = new OctreeHelper(worldOctree);
   helper.visible = false;
   scene.add(helper);
@@ -575,6 +611,10 @@ loader.load("/LeePerrySmith/LeePerrySmith.glb", (gltf) => {
 
   // Update materials
   updateAllMaterials();
+
+  setTimeout(() => {
+    enterButton.innerText = "enter";
+  }, 1000);
 });
 
 /**
@@ -789,8 +829,13 @@ let head11HasSpoken = false;
 // Ambiance
 const ambiance = new Howl({
   src: ["./sound/ambient/deep-space-ambiance.mp3"],
-  autoplay: true,
   loop: true,
+  volume: 0.25,
+});
+
+// Djembe
+const djembe = new Howl({
+  src: ["./sound/effects/djembe.mp3"],
   volume: 0.25,
 });
 
@@ -868,12 +913,6 @@ const thisIsNeitherTheFutureNorThePast = new Howl({
   },
 });
 
-// document.addEventListener("keydown", (e) => {
-//   if (e.code === "KeyM") {
-//     ambiance.play();
-//   }
-// });
-
 /**
  * Development Tools
  */
@@ -883,5 +922,3 @@ document.addEventListener("keydown", (e) => {
     console.log(camera.position);
   }
 });
-
-// ================

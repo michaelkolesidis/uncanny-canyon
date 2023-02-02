@@ -1,18 +1,21 @@
 # To-Do
 
-Inform  about the changes
+Inform about the changes
 
 ## General
-- Create menu
-- Create loading screen
+
+- ~~Create menu~~
+- ~~Create loading functionality~~
 - Add photos
 - Add videos
 
 ## Graphics
-- Effect composer on window resize 
-- Change sphere to teapots or something similar
+
+- ~~Effect composer on window resize~~
+- ~~Remove throwing ability~~
 
 ## Sound
+
 - Fix gap at the end of ambiance
 - Add stereo
 - Add echo effect
@@ -20,9 +23,11 @@ Inform  about the changes
 - Adjust all volumes
 
 ## Accessibility
+
 - Add subtitles
 
 ## Texts
+
 - Update summary
 - Write note from the artist
 - Update bio

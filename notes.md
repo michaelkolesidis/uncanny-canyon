@@ -1,5 +1,12 @@
 # Notes
 
+<!-- Other color options
+orange 255, 106, 0
+greenish 0, 255, 162
+green 58, 176, 49
+brownish-goldish 199, 154, 115 hex: c79a71 *
+purple 153, 0, 255 -->
+
 ## Links
 https://tinyurl.com/uncannycanyon
 
