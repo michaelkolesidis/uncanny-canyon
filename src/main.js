@@ -84,13 +84,19 @@ mainMenu.appendChild(instructions);
 
 document.body.appendChild(mainMenu);
 
+let djembePlayed = false;
+
 enterButton.addEventListener("click", () => {
   mainMenu.style.opacity = 0;
   mainMenu.style.pointerEvents = "none";
   document.body.style.backgroundColor = `rgb(199, 154, 115)`;
   document.body.requestPointerLock();
   mouseTime = performance.now();
-  djembe.play();
+
+  if (!djembePlayed) {
+    djembe.play();
+    djembePlayed = true;
+  }
 
   setTimeout(() => {
     ambiance.play();
