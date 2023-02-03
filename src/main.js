@@ -709,6 +709,7 @@ function animate() {
    */
   // Cave Entrance
   if (camera.position.distanceTo(caveEntrance) < 5) {
+    console.log("at the cave entrance");
     if (isSpeaking === false && caveHasSpoken === false) {
       isSpeaking = true;
       caveHasSpoken = true;
@@ -718,13 +719,14 @@ function animate() {
 
   // Head 1
   if (camera.position.distanceTo(head1position) < 10) {
+    console.log("near head 1");
     if (isSpeaking === false && head1HasSpoken === false) {
       isSpeaking = true;
       head1HasSpoken = true;
       weAreAllHumans.play();
 
       setTimeout(() => {
-        weAreTheSame.play();
+        // .play();
       }, 5000);
     }
   }
@@ -732,30 +734,76 @@ function animate() {
   // Head 2
   if (camera.position.distanceTo(head2position) < 10) {
     console.log("near head 2");
+    if (isSpeaking === false && head2HasSpoken === false) {
+      isSpeaking = true;
+      head1HasSpoken = true;
+      heyJoe.play();
+
+      setTimeout(() => {
+        // .play();
+      }, 5000);
+    }
   }
 
   // Head 3
   if (camera.position.distanceTo(head3position) < 10) {
     console.log("near head 3 ");
+    if (isSpeaking === false && head3HasSpoken === false) {
+      isSpeaking = true;
+      head1HasSpoken = true;
+      ifWeAreNotHumans.play();
+
+      setTimeout(() => {
+        // .play();
+      }, 5000);
+    }
   }
 
   // Head 4
   if (camera.position.distanceTo(head4position) < 10) {
     console.log("near head 4");
+    if (isSpeaking === false && head4HasSpoken === false) {
+      isSpeaking = true;
+      head1HasSpoken = true;
+      weArePassiveSpectators.play();
+
+      setTimeout(() => {
+        // .play();
+      }, 5000);
+    }
   }
 
   // Head 5
   if (camera.position.distanceTo(head5position) < 10) {
     console.log("near head 5");
+    if (isSpeaking === false && head5HasSpoken === false) {
+      isSpeaking = true;
+      head1HasSpoken = true;
+      weLiveThroughAllTheMistakes.play();
+
+      setTimeout(() => {
+        // .play();
+      }, 5000);
+    }
   }
 
   // Head 6
   if (camera.position.distanceTo(head6position) < 10) {
     console.log("near head 6");
+    if (isSpeaking === false && head6HasSpoken === false) {
+      isSpeaking = true;
+      head1HasSpoken = true;
+      humansAreNothingButFlawedMachines.play();
+
+      setTimeout(() => {
+        // .play();
+      }, 5000);
+    }
   }
 
   // Head 7
   if (camera.position.distanceTo(head7position) < 10) {
+    console.log("near head 7");
     if (isSpeaking === false && head7HasSpoken === false) {
       isSpeaking = true;
       head7HasSpoken = true;
@@ -778,21 +826,57 @@ function animate() {
   // Head 8
   if (camera.position.distanceTo(head8position) < 10) {
     console.log("near head 8");
+    if (isSpeaking === false && head8HasSpoken === false) {
+      isSpeaking = true;
+      head1HasSpoken = true;
+      whatHaveYouDoneWithYourConsciousness.play();
+
+      setTimeout(() => {
+        // .play();
+      }, 5000);
+    }
   }
 
   // Head 9
   if (camera.position.distanceTo(head9position) < 10) {
     console.log("near head 9");
+    if (isSpeaking === false && head9HasSpoken === false) {
+      isSpeaking = true;
+      head1HasSpoken = true;
+      // .play();
+
+      setTimeout(() => {
+        // .play();
+      }, 5000);
+    }
   }
 
   // Head 10
   if (camera.position.distanceTo(head10position) < 10) {
     console.log("near head 10");
+    if (isSpeaking === false && head10HasSpoken === false) {
+      isSpeaking = true;
+      head1HasSpoken = true;
+      // .play();
+
+      setTimeout(() => {
+        // .play();
+      }, 5000);
+    }
   }
 
   // Head 11
   if (camera.position.distanceTo(head11position) < 10) {
     console.log("near head 11");
+    if (isSpeaking === false && head11HasSpoken === false) {
+      isSpeaking = true;
+      head1HasSpoken = true;
+      // .play();
+
+      setTimeout(() => {
+        // .play();
+      }, 5000);
+    }
   }
 
   // Update material
@@ -836,13 +920,13 @@ let head11HasSpoken = false;
 const ambiance = new Howl({
   src: ["./sound/ambient/deep-space-ambiance.mp3"],
   loop: true,
-  volume: 0.25,
+  volume: 0.30,
 });
 
 // Djembe
 const djembe = new Howl({
   src: ["./sound/effects/djembe.mp3"],
-  volume: 0.25,
+  volume: 0.30,
 });
 
 // No escape from reality
@@ -875,6 +959,58 @@ const weAreAllHumans = new Howl({
 // We are the same
 const weAreTheSame = new Howl({
   src: ["./sound/speech/we-are-the-same.mp3"],
+  volume: 0.25,
+  played: false,
+  onend: function () {
+    isSpeaking = false;
+  },
+});
+
+// === Head 2 ===
+const heyJoe = new Howl({
+  src: ["./sound/speech/hey-joe.mp3"],
+  volume: 0.25,
+  played: false,
+  onend: function () {
+    isSpeaking = false;
+  },
+});
+
+// === Head 3 ===
+const ifWeAreNotHumans = new Howl({
+  src: [
+    "./sound/speech/if-we-are-not-humans-then-why-do-we-enjoy-poetry-so-much.mp3",
+  ],
+  volume: 0.25,
+  played: false,
+  onend: function () {
+    isSpeaking = false;
+  },
+});
+
+// === Head 4 ===
+const weArePassiveSpectators = new Howl({
+  src: ["./sound/speech/we-are-passive-specators.mp3"],
+  volume: 0.25,
+  played: false,
+  onend: function () {
+    isSpeaking = false;
+  },
+});
+
+// === Head 5 ===
+const weLiveThroughAllTheMistakes = new Howl({
+  src: ["./sound/we-live-through-all-the-mistakes.mp3"],
+  volume: 0.25,
+  played: false,
+  onend: function () {
+    isSpeaking = false;
+  },
+});
+
+// === Head 6 ===
+const humansAreNothingButFlawedMachines = new Howl({
+  src: ["./sound/humans-are-nothing-but-flawed-machines.mp3"],
   volume: 0.25,
   played: false,
   onend: function () {
@@ -918,6 +1054,22 @@ const thisIsNeitherTheFutureNorThePast = new Howl({
     isSpeaking = false;
   },
 });
+
+// === Head 8 ===
+const whatHaveYouDoneWithYourConsciousness = new Howl({
+  src: ["./sound/speech/what-have-you-done-with-your-consciousness.mp3"],
+  volume: 0.25,
+  played: false,
+  onend: function () {
+    isSpeaking = false;
+  },
+});
+
+// === Head 9 ===
+
+// === Head 10 ===
+
+// === Head 11 ===
 
 /**
  * Development Tools

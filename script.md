@@ -26,6 +26,7 @@ There is no way to know what is human and what is not human anymore
 <!-- What's so special about humans anyway? -->
 
 *If we are not humans, then why do we enjoy poetry so much?
+If you are human, they why can't you dance?
 
 *Hey Joe, where you goin' with that gun of your hand?
 
