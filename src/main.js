@@ -1000,7 +1000,7 @@ const weArePassiveSpectators = new Howl({
 
 // === Head 5 ===
 const weLiveThroughAllTheMistakes = new Howl({
-  src: ["./sound/we-live-through-all-the-mistakes.mp3"],
+  src: ["./sound/speech/we-live-through-mistakes.mp3"],
   volume: 0.25,
   played: false,
   onend: function () {
@@ -1010,7 +1010,7 @@ const weLiveThroughAllTheMistakes = new Howl({
 
 // === Head 6 ===
 const humansAreNothingButFlawedMachines = new Howl({
-  src: ["./sound/humans-are-nothing-but-flawed-machines.mp3"],
+  src: ["./sound/speech/humans-are-nothing-but-flawed-machines.mp3"],
   volume: 0.25,
   played: false,
   onend: function () {
