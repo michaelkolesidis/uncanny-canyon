@@ -120,9 +120,11 @@ subtitlesButton.addEventListener("click", () => {
   if (subtitlesEnabled) {
     subtitlesEnabled = false;
     subtitlesButton.innerHTML = `Subtitles: OFF`;
+    subtitlesButton.style.color = `rgb(255, 255, 255)`;
   } else {
     subtitlesEnabled = true;
     subtitlesButton.innerHTML = `Subtitles: ON`;
+    subtitlesButton.style.color = `rgb(199, 154, 115)`;
   }
 });
 
