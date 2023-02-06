@@ -49,6 +49,7 @@ import {
   head11position,
   caveEntrance,
 } from "./scripts/positions.js";
+import { Ending } from "./scripts/ending.js";
 
 /**
  * Basics
@@ -73,13 +74,17 @@ const scene = new THREE.Scene();
 // container.appendChild(stats.domElement);
 
 /**
- * Main Menu
+ * Menus
  */
 let djembePlayed = false;
-const mainMenu = Menu();
 
+// Main Menu
+const mainMenu = Menu();
+document.body.appendChild(mainMenu);
+
+// Enter Buton
 const enterButton = document.createElement("button");
-enterButton.setAttribute("id", "enter-button");
+enterButton.setAttribute("id", "button");
 enterButton.innerText = "loading";
 mainMenu.appendChild(enterButton);
 
@@ -100,7 +105,13 @@ enterButton.addEventListener("click", () => {
   }, 1500);
 });
 
+// Instructions
 const instructions = Instructions();
+mainMenu.appendChild(instructions);
+
+// Ending
+const ending = Ending();
+document.body.appendChild(ending);
 
 /**
  * Loader
@@ -915,9 +926,21 @@ function animate() {
 
   // End
   if (headsMet === 11) {
+    if (isSpeaking === false && endingHasSpoken === false) {
+      setTimeout(() => {
+        thereIsNoEnd.play();
+      }, 20000);
+      endingHasSpoken = true;
+    }
+
     setTimeout(() => {
-      thereIsNoEnd.play();
-    }, 20000);
+      ending.style.opacity = 1;
+      ending.style.pointerEvents = "auto";
+    }, 30000);
+
+    setTimeout(() => {
+      document.exitPointerLock();
+    }, 38000);
   }
 
   // Update material
@@ -955,6 +978,7 @@ let head8HasSpoken = false;
 let head9HasSpoken = false;
 let head10HasSpoken = false;
 let head11HasSpoken = false;
+let endingHasSpoken = false;
 
 // === General ===
 // Ambiance

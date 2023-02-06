@@ -23,7 +23,8 @@ body {
   z-index: 2;
 }
 
-#main-menu {
+#main-menu,
+#ending {
   position: fixed;
   top: 0;
   right: 0;
@@ -45,7 +46,7 @@ body {
   margin-left: 0.5em;
 }
 
-#enter-button {
+#button {
   background: none;
   color: var(--white);
   border: 2px solid var(--white);
@@ -57,12 +58,12 @@ body {
   width: 10em;
 }
 
-#enter-button:hover {
+#button:hover {
   color: var(--main);
   border: 2px solid var(--main);
 }
 
-#enter-button:active {
+#button:active {
   transform: scale(0.98);
 }
 
@@ -82,4 +83,10 @@ body {
   right: 0;
   padding: 1rem;
   font-weight: 900;
+}
+
+#ending {
+  opacity: 0;
+  transition: opacity 10s ease-in-out;
+  z-index: 3;
 }

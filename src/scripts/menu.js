@@ -36,8 +36,6 @@ export const Menu = () => {
   credits.innerHTML = `michael kolesidis`;
   mainMenu.appendChild(credits);
 
-  document.body.appendChild(mainMenu);
-
   return mainMenu;
 };
 
@@ -49,7 +47,6 @@ export const Instructions = () => {
   instructions.innerHTML += `You can look around by moving your MOUSE around (right-click to lock, ESC to unlock). `;
   instructions.innerHTML += `You can jump by pressing SPACE. `;
   instructions.innerHTML += `Do not forget to breathe. `;
-  mainMenu.appendChild(instructions);
 
   return instructions;
 };
