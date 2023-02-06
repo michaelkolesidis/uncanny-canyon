@@ -36,7 +36,7 @@
 
 ### Head 4
 
-- When I sleep I have the strangest dreams. Yesterday, I dreamt I was stuck at a deserted area speaking with giant flexible heads.
+- When I sleep, I have the strangest dreams. Yesterday, I dreamt I was stuck at a deserted area speaking with giant flexible heads.
 
 - Ninety percent of the texts I produce consist of the same 50 words.
 

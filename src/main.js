@@ -50,6 +50,7 @@ import {
   caveEntrance,
 } from "./scripts/positions.js";
 import { Ending } from "./scripts/ending.js";
+import { Subtitles } from "./scripts/subtitles.js";
 
 /**
  * Basics
@@ -112,6 +113,12 @@ mainMenu.appendChild(instructions);
 // Ending
 const ending = Ending();
 document.body.appendChild(ending);
+
+/**
+ * Subtitles
+ */
+const subtitles = Subtitles();
+document.body.appendChild(subtitles);
 
 /**
  * Loader

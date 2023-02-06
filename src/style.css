@@ -17,6 +17,7 @@ body {
   color: var(--white);
   font-size: 13px;
   overscroll-behavior: none;
+  overflow: hidden;
 }
 
 .lil-gui {
@@ -89,4 +90,20 @@ body {
   opacity: 0;
   transition: opacity 10s ease-in-out;
   z-index: 3;
+}
+
+#subtitles {
+  z-index: 2;
+  position:sticky;
+  bottom: 2em;
+  padding: 0.2em;
+  opacity: 0;
+  background: black;
+  color: var(--white);
+  max-width: fit-content;
+  max-height: fit-content;
+  text-align: center;
+  font-size: 2em;
+  max-width: 60ch;
+  margin: auto;
 }

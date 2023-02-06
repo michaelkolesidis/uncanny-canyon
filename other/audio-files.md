@@ -71,7 +71,7 @@
 
 
 ### Head 4
-* When I sleep I have the strangest dreams. Yesterday, I dreamt I was stuck at a deserted area speaking with giant flexible heads. 
+* When I sleep, I have the strangest dreams. Yesterday, I dreamt I was stuck at a deserted area speaking with giant flexible heads. 
     * File: when-I-sleep-I-have-the-strangest-dreams.mp3
     * Name: whenIsleep
 
