@@ -967,7 +967,7 @@ function animate() {
             subtitles.style.opacity = 0;
           }, 7000);
         }
-      }, 18000);
+      }, 20000);
     }
   }
 
