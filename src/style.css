@@ -92,18 +92,25 @@ body {
   z-index: 3;
 }
 
+#subtitles-button {
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+}
+
 #subtitles {
   z-index: 2;
-  position:sticky;
+  position: sticky;
   bottom: 2em;
   padding: 0.2em;
   opacity: 0;
   background: black;
   color: var(--white);
-  max-width: fit-content;
+  width: fit-content;
+  max-width: 60ch;
   max-height: fit-content;
   text-align: center;
   font-size: 2em;
-  max-width: 60ch;
   margin: auto;
 }

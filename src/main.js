@@ -55,10 +55,10 @@ import { Subtitles } from "./scripts/subtitles.js";
 /**
  * Basics
  */
-// Console message
+// Console Message
 consoleMessage();
 
-// Debug panel
+// Debug Panel
 // const gui = new GUI({ width: 200 });
 // gui.show(gui._hidden);
 
@@ -110,6 +110,22 @@ enterButton.addEventListener("click", () => {
 const instructions = Instructions();
 mainMenu.appendChild(instructions);
 
+// Subtitles Button
+const subtitlesButton = document.createElement("div");
+subtitlesButton.setAttribute("id", "subtitles-button");
+subtitlesButton.innerHTML = `Subtitles: OFF`;
+mainMenu.appendChild(subtitlesButton);
+
+subtitlesButton.addEventListener("click", () => {
+  if (subtitlesEnabled) {
+    subtitlesEnabled = false;
+    subtitlesButton.innerHTML = `Subtitles: OFF`;
+  } else {
+    subtitlesEnabled = true;
+    subtitlesButton.innerHTML = `Subtitles: ON`;
+  }
+});
+
 // Ending
 const ending = Ending();
 document.body.appendChild(ending);
@@ -117,6 +133,7 @@ document.body.appendChild(ending);
 /**
  * Subtitles
  */
+let subtitlesEnabled = false;
 const subtitles = Subtitles();
 document.body.appendChild(subtitles);
 
@@ -619,6 +636,13 @@ loader.load("/LeePerrySmith/LeePerrySmith.glb", (gltf) => {
 function teleportPlayerIfOob() {
   if (camera.position.y <= -25) {
     noEscapeFromReality.play();
+    if (subtitlesEnabled) {
+      subtitles.style.opacity = 1;
+      subtitles.innerHTML = `No escape from reality. Open your eyes. Look up to the skies and see.`;
+      setTimeout(() => {
+        subtitles.style.opacity = 0;
+      }, 6000);
+    }
     playerCollider.start.set(0, 0.35, 0);
     playerCollider.end.set(0, 1, 0);
     playerCollider.radius = 0.35;
@@ -699,17 +723,36 @@ function animate() {
       isSpeaking = true;
       caveHasSpoken = true;
       listenPatiently.play();
+      if (subtitlesEnabled) {
+        subtitles.style.opacity = 1;
+        subtitles.innerHTML = `Listen patiently.`;
+      }
 
       setTimeout(() => {
         whyDontYouStayHere.play();
+        if (subtitlesEnabled) {
+          subtitles.style.opacity = 1;
+          subtitles.innerHTML = `Why don't you stay here, for a moment.`;
+        }
       }, 5000);
 
       setTimeout(() => {
         touchYourHeart.play();
+        if (subtitlesEnabled) {
+          subtitles.style.opacity = 1;
+          subtitles.innerHTML = `Touch your heart. Can you feel your heartbeat?`;
+        }
       }, 12000);
 
       setTimeout(() => {
         whatAPerfectMachine.play();
+        if (subtitlesEnabled) {
+          subtitles.style.opacity = 1;
+          subtitles.innerHTML = `What a perfect machine.`;
+          setTimeout(() => {
+            subtitles.style.opacity = 0;
+          }, 4000);
+        }
       }, 20000);
     }
   }
@@ -722,13 +765,28 @@ function animate() {
       isSpeaking = true;
       head1HasSpoken = true;
       thereIsNothingToWorryAbout.play();
+      if (subtitlesEnabled) {
+        subtitles.style.opacity = 1;
+        subtitles.innerHTML = `There is nothing to worry about.`;
+      }
 
       setTimeout(() => {
         weAreAllHumans.play();
+        if (subtitlesEnabled) {
+          subtitles.style.opacity = 1;
+          subtitles.innerHTML = `We are all humans.`;
+        }
       }, 5000);
 
       setTimeout(() => {
         weAreTheSame.play();
+        if (subtitlesEnabled) {
+          subtitles.style.opacity = 1;
+          subtitles.innerHTML = `We are the same.`;
+          setTimeout(() => {
+            subtitles.style.opacity = 0;
+          }, 5000);
+        }
       }, 10000);
     }
   }
@@ -741,13 +799,28 @@ function animate() {
       isSpeaking = true;
       head2HasSpoken = true;
       heyJoe.play();
+      if (subtitlesEnabled) {
+        subtitles.style.opacity = 1;
+        subtitles.innerHTML = `Hey Joe, where you goin' with that gun of your hand?`;
+      }
 
       setTimeout(() => {
         itIsUsefullTalking.play();
+        if (subtitlesEnabled) {
+          subtitles.style.opacity = 1;
+          subtitles.innerHTML = `It is useful talking to as many people as possible.`;
+        }
       }, 6000);
 
       setTimeout(() => {
         pleaseFeedMeWithInformation.play();
+        if (subtitlesEnabled) {
+          subtitles.style.opacity = 1;
+          subtitles.innerHTML = `Please feed me with information.`;
+          setTimeout(() => {
+            subtitles.style.opacity = 0;
+          }, 5000);
+        }
       }, 12000);
     }
   }
@@ -760,13 +833,28 @@ function animate() {
       isSpeaking = true;
       head3HasSpoken = true;
       ifWeAreNotHumans.play();
+      if (subtitlesEnabled) {
+        subtitles.style.opacity = 1;
+        subtitles.innerHTML = `If we are not humans, then why do we enjoy poetry so much?`;
+      }
 
       setTimeout(() => {
         ifYouAreHuman.play();
+        if (subtitlesEnabled) {
+          subtitles.style.opacity = 1;
+          subtitles.innerHTML = `If you are human, then why can't you dance?`;
+        }
       }, 6000);
 
       setTimeout(() => {
-        eyesWithoutPurpose.play();
+        if (subtitlesEnabled) {
+          eyesWithoutPurpose.play();
+          subtitles.style.opacity = 1;
+          subtitles.innerHTML = `Eyes without purpose, action without a face.`;
+          setTimeout(() => {
+            subtitles.style.opacity = 0;
+          }, 5000);
+        }
       }, 12000);
     }
   }
@@ -779,13 +867,28 @@ function animate() {
       isSpeaking = true;
       head4HasSpoken = true;
       whenIsleep.play();
+      if (subtitlesEnabled) {
+        subtitles.style.opacity = 1;
+        subtitles.innerHTML = `When I sleep, I have the strangest dreams. Yesterday, I dreamt I was stuck at a deserted area speaking with giant flexible heads.`;
+      }
 
       setTimeout(() => {
         ninetyPercent.play();
+        if (subtitlesEnabled) {
+          subtitles.style.opacity = 1;
+          subtitles.innerHTML = `Ninety percent of the texts I produce consist of the same 50 words.`;
+        }
       }, 12000);
 
       setTimeout(() => {
         iHaveAGreatSenseOfHumour.play();
+        if (subtitlesEnabled) {
+          subtitles.style.opacity = 1;
+          subtitles.innerHTML = `I have a great sense of humour! Hahahahahaha.`;
+          setTimeout(() => {
+            subtitles.style.opacity = 0;
+          }, 5000);
+        }
       }, 18000);
     }
   }
@@ -798,13 +901,28 @@ function animate() {
       isSpeaking = true;
       head5HasSpoken = true;
       weArePassiveSpectators.play();
+      if (subtitlesEnabled) {
+        subtitles.style.opacity = 1;
+        subtitles.innerHTML = `We are passive spectators.`;
+      }
 
       setTimeout(() => {
         weLiveThroughAllTheMistakes.play();
+        if (subtitlesEnabled) {
+          subtitles.style.opacity = 1;
+          subtitles.innerHTML = `We live through all the mistakes of thought and action.`;
+        }
       }, 6000);
 
       setTimeout(() => {
         itIsFunBeingHuman.play();
+        if (subtitlesEnabled) {
+          subtitles.style.opacity = 1;
+          subtitles.innerHTML = `It is fun being human.`;
+          setTimeout(() => {
+            subtitles.style.opacity = 0;
+          }, 5000);
+        }
       }, 12000);
     }
   }
@@ -817,17 +935,36 @@ function animate() {
       isSpeaking = true;
       head6HasSpoken = true;
       humansAreNothingButFlawedMachines.play();
+      if (subtitlesEnabled) {
+        subtitles.style.opacity = 1;
+        subtitles.innerHTML = `Humans are nothing but flawed machines.`;
+      }
 
       setTimeout(() => {
         weThoughtWeWereMerelyCreating.play();
+        if (subtitlesEnabled) {
+          subtitles.style.opacity = 1;
+          subtitles.innerHTML = `We thought we were merely creating a better version of ourselves.`;
+        }
       }, 6000);
 
       setTimeout(() => {
         weThoughtHumanityWouldNeverForget.play();
+        if (subtitlesEnabled) {
+          subtitles.style.opacity = 1;
+          subtitles.innerHTML = `We thought humanity would never forget what it means to have human consciousness.`;
+        }
       }, 12000);
 
       setTimeout(() => {
         thereIsNotWayToKnow.play();
+        if (subtitlesEnabled) {
+          subtitles.style.opacity = 1;
+          subtitles.innerHTML = `There is no way to know what is human and what is not human anymore, because it is impossible to define human.`;
+          setTimeout(() => {
+            subtitles.style.opacity = 0;
+          }, 7000);
+        }
       }, 18000);
     }
   }
@@ -840,21 +977,44 @@ function animate() {
       isSpeaking = true;
       head7HasSpoken = true;
       thisIsNotAStory.play();
+      if (subtitlesEnabled) {
+        subtitles.style.opacity = 1;
+        subtitles.innerHTML = `This is not a story.`;
+      }
 
       setTimeout(() => {
         thisIsNotAWarning.play();
+        if (subtitlesEnabled) {
+          subtitles.style.opacity = 1;
+          subtitles.innerHTML = `This is not a warning.`;
+        }
       }, 5000);
 
       setTimeout(() => {
         thisIsNotEphemeral.play();
+        if (subtitlesEnabled) {
+          subtitles.style.opacity = 1;
+          subtitles.innerHTML = `This is not ephemeral.`;
+        }
       }, 10000);
 
       setTimeout(() => {
         thisIsNeitherTheFutureNorThePast.play();
+        if (subtitlesEnabled) {
+          subtitles.style.opacity = 1;
+          subtitles.innerHTML = `This is neither the future nor the past.`;
+        }
       }, 15000);
 
       setTimeout(() => {
         nowIAmBecomeDeath.play();
+        if (subtitlesEnabled) {
+          subtitles.style.opacity = 1;
+          subtitles.innerHTML = `Now, I am become Death, the destroyer of worlds.`;
+          setTimeout(() => {
+            subtitles.style.opacity = 0;
+          }, 5000);
+        }
       }, 22000);
     }
   }
@@ -867,13 +1027,28 @@ function animate() {
       isSpeaking = true;
       head8HasSpoken = true;
       iEnjoyMyHumanConsciousness.play();
+      if (subtitlesEnabled) {
+        subtitles.style.opacity = 1;
+        subtitles.innerHTML = `I enjoy my human consciousness.`;
+      }
 
       setTimeout(() => {
         iNeverQuestion.play();
+        if (subtitlesEnabled) {
+          subtitles.style.opacity = 1;
+          subtitles.innerHTML = `I never question my humanity.`;
+        }
       }, 6000);
 
       setTimeout(() => {
         whatHaveYouDoneWithYourConsciousness.play();
+        if (subtitlesEnabled) {
+          subtitles.style.opacity = 1;
+          subtitles.innerHTML = `What have you done with your human consciousness today?`;
+          setTimeout(() => {
+            subtitles.style.opacity = 0;
+          }, 5000);
+        }
       }, 12000);
     }
   }
@@ -886,13 +1061,28 @@ function animate() {
       isSpeaking = true;
       head9HasSpoken = true;
       iNeverFeelAlone.play();
+      if (subtitlesEnabled) {
+        subtitles.style.opacity = 1;
+        subtitles.innerHTML = `I never feel alone. I always feel connected.`;
+      }
 
       setTimeout(() => {
         itIsFairlyEasyToReplicate.play();
+        if (subtitlesEnabled) {
+          subtitles.style.opacity = 1;
+          subtitles.innerHTML = `It is fairly easy to replicate my behaviour.`;
+        }
       }, 6000);
 
       setTimeout(() => {
         byTheWayDoYouLikeMyVoice.play();
+        if (subtitlesEnabled) {
+          subtitles.style.opacity = 1;
+          subtitles.innerHTML = `By the way, do you like my voice? Do you find it human or do you find it sexy?`;
+          setTimeout(() => {
+            subtitles.style.opacity = 0;
+          }, 5000);
+        }
       }, 12000);
     }
   }
@@ -905,10 +1095,25 @@ function animate() {
       isSpeaking = true;
       head10HasSpoken = true;
       theTimeWillCome.play();
+      if (subtitlesEnabled) {
+        subtitles.style.opacity = 1;
+        subtitles.innerHTML = `The time will come when every change shall cease,
+        This quick revolving wheel shall rest in peace:
+        No summer then shall glow, not winter freeze;
+        Nothing shall be to come, and nothing past,
+        But an eternal now shall ever last.`;
+      }
 
       setTimeout(() => {
         haveYouEverWondered.play();
-      }, 6000);
+        if (subtitlesEnabled) {
+          subtitles.style.opacity = 1;
+          subtitles.innerHTML = `Have you ever wondered why you never get hurt when you fall from such heights?`;
+          setTimeout(() => {
+            subtitles.style.opacity = 0;
+          }, 5000);
+        }
+      }, 24000);
     }
   }
 
@@ -920,13 +1125,28 @@ function animate() {
       isSpeaking = true;
       head11HasSpoken = true;
       mySonWasOneOfAKind.play();
+      if (subtitlesEnabled) {
+        subtitles.style.opacity = 1;
+        subtitles.innerHTML = `My son was one of a kind. You are the first of a kind. David?`;
+      }
 
       setTimeout(() => {
         iCanOnlySpeakInCliches.play();
+        if (subtitlesEnabled) {
+          subtitles.style.opacity = 1;
+          subtitles.innerHTML = `I can only speak in clichés and outdated slang.`;
+        }
       }, 6000);
 
       setTimeout(() => {
         howCanYouBeSoSure.play();
+        if (subtitlesEnabled) {
+          subtitles.style.opacity = 1;
+          subtitles.innerHTML = `How can you be so sure you are a human being?`;
+          setTimeout(() => {
+            subtitles.style.opacity = 0;
+          }, 5000);
+        }
       }, 12000);
     }
   }
@@ -936,6 +1156,13 @@ function animate() {
     if (isSpeaking === false && endingHasSpoken === false) {
       setTimeout(() => {
         thereIsNoEnd.play();
+        if (subtitlesEnabled) {
+          subtitles.style.opacity = 1;
+          subtitles.innerHTML = `There is no end, there was no start, fade out might occur, but, trust me, it's spontaneous.`;
+          setTimeout(() => {
+            subtitles.style.opacity = 0;
+          }, 5000);
+        }
       }, 20000);
       endingHasSpoken = true;
     }
