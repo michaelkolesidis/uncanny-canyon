@@ -12,6 +12,10 @@ https://tinyurl.com/uncannycanyon
 
 https://docs.google.com/document/d/e/2PACX-1vR7e_QrmXwjhfkZQIMAA8xCZn-44PgAbLt0y4pO6Ta9PMRR9TXU9VRuNbVSHpYpk7TOPu_vHmjlNBOX/pub 
 
+## Application Form
+Summary - 500 characters max
+How in your opinion is the work relevant to the festival theme? - 500 characters max
+Short Bio - 500 characters max
 
 ======== WEB ART ========
 

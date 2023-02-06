@@ -2,6 +2,10 @@
 
 by michael kolesidis
 
+## Artwork Documentation
+
+[uncanny canyon](https://docs.google.com/document/d/1osOCtdUGjlvaZNHYEnBOjEUEwFj5L9qizVWQsWzC9nY/edit?usp=sharing)
+
 ## Technologies Used
 
 three.js

@@ -714,6 +714,18 @@ function animate() {
       isSpeaking = true;
       caveHasSpoken = true;
       listenPatiently.play();
+
+      setTimeout(() => {
+        whyDontYouStayHere.play();
+      }, 5000);
+
+      setTimeout(() => {
+        touchYourHeart.play();
+      }, 12000);
+
+      setTimeout(() => {
+        whatAPerfectMachine.play();
+      }, 20000);
     }
   }
 
@@ -736,7 +748,7 @@ function animate() {
     console.log("near head 2");
     if (isSpeaking === false && head2HasSpoken === false) {
       isSpeaking = true;
-      head1HasSpoken = true;
+      head2HasSpoken = true;
       heyJoe.play();
 
       setTimeout(() => {
@@ -750,7 +762,7 @@ function animate() {
     console.log("near head 3 ");
     if (isSpeaking === false && head3HasSpoken === false) {
       isSpeaking = true;
-      head1HasSpoken = true;
+      head3HasSpoken = true;
       ifWeAreNotHumans.play();
 
       setTimeout(() => {
@@ -764,7 +776,7 @@ function animate() {
     console.log("near head 4");
     if (isSpeaking === false && head4HasSpoken === false) {
       isSpeaking = true;
-      head1HasSpoken = true;
+      head4HasSpoken = true;
       weArePassiveSpectators.play();
 
       setTimeout(() => {
@@ -778,7 +790,7 @@ function animate() {
     console.log("near head 5");
     if (isSpeaking === false && head5HasSpoken === false) {
       isSpeaking = true;
-      head1HasSpoken = true;
+      head5HasSpoken = true;
       weLiveThroughAllTheMistakes.play();
 
       setTimeout(() => {
@@ -792,7 +804,7 @@ function animate() {
     console.log("near head 6");
     if (isSpeaking === false && head6HasSpoken === false) {
       isSpeaking = true;
-      head1HasSpoken = true;
+      head6HasSpoken = true;
       humansAreNothingButFlawedMachines.play();
 
       setTimeout(() => {
@@ -828,7 +840,7 @@ function animate() {
     console.log("near head 8");
     if (isSpeaking === false && head8HasSpoken === false) {
       isSpeaking = true;
-      head1HasSpoken = true;
+      head8HasSpoken = true;
       whatHaveYouDoneWithYourConsciousness.play();
 
       setTimeout(() => {
@@ -842,7 +854,7 @@ function animate() {
     console.log("near head 9");
     if (isSpeaking === false && head9HasSpoken === false) {
       isSpeaking = true;
-      head1HasSpoken = true;
+      head9HasSpoken = true;
       // .play();
 
       setTimeout(() => {
@@ -856,7 +868,7 @@ function animate() {
     console.log("near head 10");
     if (isSpeaking === false && head10HasSpoken === false) {
       isSpeaking = true;
-      head1HasSpoken = true;
+      head10HasSpoken = true;
       // .play();
 
       setTimeout(() => {
@@ -870,7 +882,7 @@ function animate() {
     console.log("near head 11");
     if (isSpeaking === false && head11HasSpoken === false) {
       isSpeaking = true;
-      head1HasSpoken = true;
+      head11HasSpoken = true;
       // .play();
 
       setTimeout(() => {
@@ -920,13 +932,13 @@ let head11HasSpoken = false;
 const ambiance = new Howl({
   src: ["./sound/ambient/deep-space-ambiance.mp3"],
   loop: true,
-  volume: 0.30,
+  volume: 0.3,
 });
 
 // Djembe
 const djembe = new Howl({
   src: ["./sound/effects/djembe.mp3"],
-  volume: 0.30,
+  volume: 0.3,
 });
 
 // No escape from reality
@@ -939,6 +951,33 @@ const noEscapeFromReality = new Howl({
 // Listen patiently
 const listenPatiently = new Howl({
   src: ["./sound/speech/listen-patiently.mp3"],
+  volume: 0.25,
+  onend: function () {
+    isSpeaking = false;
+  },
+});
+
+// Why don't you stay here, for a moment.
+const whyDontYouStayHere = new Howl({
+  src: ["./sound/speech/why-dont-you-stay-here-for-a-moment.mp3"],
+  volume: 0.25,
+  onend: function () {
+    isSpeaking = false;
+  },
+});
+
+// Touch your heart. Can you feel your heartbeat?
+const touchYourHeart = new Howl({
+  src: ["./sound/speech/touch-your-heart-can-you-feel-your-heartbeat.mp3"],
+  volume: 0.25,
+  onend: function () {
+    isSpeaking = false;
+  },
+});
+
+// What a perfect machine.
+const whatAPerfectMachine = new Howl({
+  src: ["./sound/speech/what-a-perfect-machine.mp3"],
   volume: 0.25,
   onend: function () {
     isSpeaking = false;

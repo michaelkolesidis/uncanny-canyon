@@ -2,11 +2,18 @@
 
 Inform about the changes
 
+## Bug Fixes
+
+- ~~Fix repeating bug~~
+
+## Elements positioning
+- Move head 1 further back
+
 ## General
 
 - ~~Create menu~~
 - ~~Create loading functionality~~
-- Add photos
+- ~~Add photos~~
 - Add videos
 
 ## Graphics
