@@ -32,7 +32,23 @@ import { DotScreenPass } from "three/examples/jsm/postprocessing/DotScreenPass.j
 import { ShaderPass } from "three/examples/jsm/postprocessing/ShaderPass.js";
 import { GammaCorrectionShader } from "three/examples/jsm/shaders/GammaCorrectionShader.js";
 import { Howl /* , Howler */ } from "howler";
-import consoleMessage from "./scripts/consoleMessage.js";
+import { consoleMessage } from "./scripts/consoleMessage.js";
+import { Menu, Instructions } from "./scripts/menu.js";
+import {
+  headPositions,
+  head1position,
+  head2position,
+  head3position,
+  head4position,
+  head5position,
+  head6position,
+  head7position,
+  head8position,
+  head9position,
+  head10position,
+  head11position,
+  caveEntrance,
+} from "./scripts/positions.js";
 
 /**
  * Basics
@@ -59,36 +75,13 @@ const scene = new THREE.Scene();
 /**
  * Main Menu
  */
-const mainMenu = document.createElement("div");
-mainMenu.setAttribute("id", "main-menu");
-
-const heading = document.createElement("div");
-heading.setAttribute("id", "heading");
-heading.innerHTML = "uncanny<br>canyon";
-mainMenu.appendChild(heading);
+let djembePlayed = false;
+const mainMenu = Menu();
 
 const enterButton = document.createElement("button");
 enterButton.setAttribute("id", "enter-button");
 enterButton.innerText = "loading";
 mainMenu.appendChild(enterButton);
-
-const credits = document.createElement("div");
-credits.setAttribute("id", "credits");
-credits.innerHTML = `michael kolesidis`;
-mainMenu.appendChild(credits);
-
-const instructions = document.createElement("div");
-instructions.setAttribute("id", "instructions");
-instructions.innerHTML += `Please use headphones for a better experience. `;
-instructions.innerHTML += `Try pressing the WASD keys to move forward, left, back, and right respectively. You can also use the ARROW keys. `;
-instructions.innerHTML += `You can look around by moving your MOUSE around (right-click to lock, ESC to unlock). `;
-instructions.innerHTML += `You can jump by pressing SPACE. `;
-instructions.innerHTML += `Do not forget to breathe. `;
-mainMenu.appendChild(instructions);
-
-document.body.appendChild(mainMenu);
-
-let djembePlayed = false;
 
 enterButton.addEventListener("click", () => {
   mainMenu.style.opacity = 0;
@@ -106,6 +99,8 @@ enterButton.addEventListener("click", () => {
     ambiance.play();
   }, 1000);
 });
+
+const instructions = Instructions();
 
 /**
  * Loader
@@ -564,33 +559,6 @@ depthMaterial.onBeforeCompile = (shader) => {
   );
 };
 
-// Positions
-const headPositions = [
-  { x: -37.3472, y: -0.4736, z: -51.2056 },
-  { x: 60.2514, y: -0.4735, z: -238.7286 },
-  { x: 41.5429, y: 14.1217, z: -171.182 },
-  { x: -10.5056, y: -0.4735, z: -258.0651 },
-  { x: -38.1468, y: 31.3499, z: -242.9543 },
-  { x: -72.7389, y: 51.9802, z: -99.3168 },
-  { x: -44.1077, y: -0.5448, z: -196.664 },
-  { x: -117.5158, y: 36.89917, z: -346.7087 },
-  { x: -80.6312, y: -0.4735, z: -394.5718 },
-  { x: -87.8377, y: 2.9657, z: -505.6204 },
-  { x: -123.9297, y: 74.12, z: -483.6523 },
-];
-
-const head1position = new THREE.Vector3(-37.3472, -0.4736, -51.2056);
-const head2position = new THREE.Vector3(60.2514, -0.4735, -238.7286);
-const head3position = new THREE.Vector3(41.5429, 14.1217, -171.182);
-const head4position = new THREE.Vector3(-10.5056, -0.4735, -258.0651);
-const head5position = new THREE.Vector3(-38.1468, 31.3499, -242.9543);
-const head6position = new THREE.Vector3(-72.7389, 51.9802, -99.3168);
-const head7position = new THREE.Vector3(-44.1077, -0.5448, -196.664);
-const head8position = new THREE.Vector3(-117.5158, 36.89917, -346.7087);
-const head9position = new THREE.Vector3(-80.6312, -0.4735, -394.5718);
-const head10position = new THREE.Vector3(-87.8377, 2.9657, -505.6204);
-const head11position = new THREE.Vector3(-123.9297, 74.12, -483.6523);
-
 // Model Loading
 loader.load("/LeePerrySmith/LeePerrySmith.glb", (gltf) => {
   // First head
@@ -624,7 +592,7 @@ loader.load("/LeePerrySmith/LeePerrySmith.glb", (gltf) => {
 
   setTimeout(() => {
     enterButton.innerText = "enter";
-  }, 1000);
+  }, 2000);
 });
 
 /**
@@ -640,11 +608,6 @@ function teleportPlayerIfOob() {
     camera.rotation.set(0, 0, 0);
   }
 }
-
-/**
- * Other Positions
- */
-const caveEntrance = new THREE.Vector3(-5.8184, -0.4736, -8.6371);
 
 /**
  * Resize
@@ -692,7 +655,6 @@ effectComposer.addPass(renderPass);
 
 // Dot screen pass
 const dotScreenPass = new DotScreenPass();
-// dotScreenPass.enabled = false;
 dotScreenPass.uniforms.scale.value = 0.8;
 effectComposer.addPass(dotScreenPass);
 
@@ -733,7 +695,7 @@ function animate() {
       }, 20000);
     }
   }
-  console.log(headsMet);
+
   // Head 1
   if (camera.position.distanceTo(head1position) < 10) {
     // console.log("near head 1");

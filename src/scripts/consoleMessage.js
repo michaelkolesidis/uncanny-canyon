@@ -31,11 +31,11 @@ const styles = [
   "font-weight: 600; font-size: 13px",
 ].join(";");
 
-export default function consoleMessage() {
+export const consoleMessage = () => {
   console.log("%c uncanny cannyon ", titleStyles);
   console.log("%c by michael kolesidis", styles);
   console.log(
     `%cSince you are here, I would kindly ask you to contact me\nat michael.kolesidis (at) gmail.com in case you encounter\nany problems (bugs, performance issues, other issues etc.)\nduring the exprience. Cheers!`,
     styles
   );
-}
+};
