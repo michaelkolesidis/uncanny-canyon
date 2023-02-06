@@ -27,7 +27,7 @@ Inform about the changes
 - Fix gap at the end of ambiance
 - Add stereo
 - Add echo effect
-- Add sound when falling out of the level
+- ~~Add sound when falling out of the level~~
 - Adjust all volumes
 
 ## Accessibility

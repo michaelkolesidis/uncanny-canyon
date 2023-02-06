@@ -699,7 +699,7 @@ effectComposer.addPass(gammaCorrectionPass);
  * Animate
  */
 let isSpeaking = false;
-let headsMet = 10;
+let headsMet = 0;
 
 const clock = new THREE.Clock();
 function animate() {
@@ -798,11 +798,11 @@ function animate() {
 
       setTimeout(() => {
         ninetyPercent.play();
-      }, 6000);
+      }, 12000);
 
       setTimeout(() => {
         iHaveAGreatSenseOfHumour.play();
-      }, 12000);
+      }, 18000);
     }
   }
 
@@ -951,7 +951,7 @@ function animate() {
   if (headsMet === 11) {
     setTimeout(() => {
       thereIsNoEnd.play();
-    }, 20000)
+    }, 20000);
   }
 
   // Update material
@@ -1001,7 +1001,7 @@ const ambiance = new Howl({
 // Djembe
 const djembe = new Howl({
   src: ["./sound/effects/djembe.mp3"],
-  volume: 0.3,
+  volume: 0.4,
 });
 
 // No escape from reality
