@@ -710,7 +710,7 @@ function animate() {
    */
   // Cave Entrance
   if (camera.position.distanceTo(caveEntrance) < 5) {
-    console.log("at the cave entrance");
+    // console.log("at the cave entrance");
     if (isSpeaking === false && caveHasSpoken === false) {
       isSpeaking = true;
       caveHasSpoken = true;
@@ -732,7 +732,7 @@ function animate() {
 
   // Head 1
   if (camera.position.distanceTo(head1position) < 10) {
-    console.log("near head 1");
+    // console.log("near head 1");
     headsMet += 1;
     if (isSpeaking === false && head1HasSpoken === false) {
       isSpeaking = true;
@@ -751,7 +751,7 @@ function animate() {
 
   // Head 2
   if (camera.position.distanceTo(head2position) < 10) {
-    console.log("near head 2");
+    // console.log("near head 2");
     headsMet += 1;
     if (isSpeaking === false && head2HasSpoken === false) {
       isSpeaking = true;
@@ -770,7 +770,7 @@ function animate() {
 
   // Head 3
   if (camera.position.distanceTo(head3position) < 10) {
-    console.log("near head 3 ");
+    // console.log("near head 3 ");
     headsMet += 1;
     if (isSpeaking === false && head3HasSpoken === false) {
       isSpeaking = true;
@@ -789,7 +789,7 @@ function animate() {
 
   // Head 4
   if (camera.position.distanceTo(head4position) < 10) {
-    console.log("near head 4");
+    // console.log("near head 4");
     headsMet += 1;
     if (isSpeaking === false && head4HasSpoken === false) {
       isSpeaking = true;
@@ -808,7 +808,7 @@ function animate() {
 
   // Head 5
   if (camera.position.distanceTo(head5position) < 10) {
-    console.log("near head 5");
+    // console.log("near head 5");
     headsMet += 1;
     if (isSpeaking === false && head5HasSpoken === false) {
       isSpeaking = true;
@@ -827,7 +827,7 @@ function animate() {
 
   // Head 6
   if (camera.position.distanceTo(head6position) < 10) {
-    console.log("near head 6");
+    // console.log("near head 6");
     headsMet += 1;
     if (isSpeaking === false && head6HasSpoken === false) {
       isSpeaking = true;
@@ -850,7 +850,7 @@ function animate() {
 
   // Head 7
   if (camera.position.distanceTo(head7position) < 10) {
-    console.log("near head 7");
+    // console.log("near head 7");
     headsMet += 1;
     if (isSpeaking === false && head7HasSpoken === false) {
       isSpeaking = true;
@@ -877,7 +877,7 @@ function animate() {
 
   // Head 8
   if (camera.position.distanceTo(head8position) < 10) {
-    console.log("near head 8");
+    // console.log("near head 8");
     headsMet += 1;
     if (isSpeaking === false && head8HasSpoken === false) {
       isSpeaking = true;
@@ -896,7 +896,7 @@ function animate() {
 
   // Head 9
   if (camera.position.distanceTo(head9position) < 10) {
-    console.log("near head 9");
+    // console.log("near head 9");
     headsMet += 1;
     if (isSpeaking === false && head9HasSpoken === false) {
       isSpeaking = true;
@@ -915,7 +915,7 @@ function animate() {
 
   // Head 10
   if (camera.position.distanceTo(head10position) < 10) {
-    console.log("near head 10");
+    // console.log("near head 10");
     headsMet += 1;
     if (isSpeaking === false && head10HasSpoken === false) {
       isSpeaking = true;
@@ -930,7 +930,7 @@ function animate() {
 
   // Head 11
   if (camera.position.distanceTo(head11position) < 10) {
-    console.log("near head 11");
+    // console.log("near head 11");
     headsMet += 1;
     if (isSpeaking === false && head11HasSpoken === false) {
       isSpeaking = true;
