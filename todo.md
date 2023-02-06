@@ -15,6 +15,7 @@ Inform about the changes
 - ~~Create loading functionality~~
 - ~~Add photos~~
 - Add videos
+- End Screen with link to artists note with warning
 
 ## Graphics
 

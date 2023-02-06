@@ -562,7 +562,7 @@ depthMaterial.onBeforeCompile = (shader) => {
 
 // Positions
 const headPositions = [
-  { x: -40.5746, y: -0.4735, z: -30.7728 },
+  { x: -37.3472, y: -0.4736, z: -51.2056 },
   { x: 60.2514, y: -0.4735, z: -238.7286 },
   { x: 41.5429, y: 14.1217, z: -171.182 },
   { x: -10.5056, y: -0.4735, z: -258.0651 },
@@ -575,7 +575,7 @@ const headPositions = [
   { x: -123.9297, y: 74.12, z: -483.6523 },
 ];
 
-const head1position = new THREE.Vector3(-40.5746, -0.4735, -30.7728);
+const head1position = new THREE.Vector3(-37.3472, -0.4736, -51.2056);
 const head2position = new THREE.Vector3(60.2514, -0.4735, -238.7286);
 const head3position = new THREE.Vector3(41.5429, 14.1217, -171.182);
 const head4position = new THREE.Vector3(-10.5056, -0.4735, -258.0651);
@@ -640,7 +640,7 @@ function teleportPlayerIfOob() {
 /**
  * Other Positions
  */
-const caveEntrance = new THREE.Vector3(-15.6653, -0.4736, -18.6151);
+const caveEntrance = new THREE.Vector3(-5.8184, -0.4736, -8.6371);
 
 /**
  * Resize
@@ -699,6 +699,7 @@ effectComposer.addPass(gammaCorrectionPass);
  * Animate
  */
 let isSpeaking = false;
+let headsMet = 10;
 
 const clock = new THREE.Clock();
 function animate() {
@@ -732,90 +733,125 @@ function animate() {
   // Head 1
   if (camera.position.distanceTo(head1position) < 10) {
     console.log("near head 1");
+    headsMet += 1;
     if (isSpeaking === false && head1HasSpoken === false) {
       isSpeaking = true;
       head1HasSpoken = true;
-      weAreAllHumans.play();
+      thereIsNothingToWorryAbout.play();
 
       setTimeout(() => {
-        // .play();
+        weAreAllHumans.play();
       }, 5000);
+
+      setTimeout(() => {
+        weAreTheSame.play();
+      }, 10000);
     }
   }
 
   // Head 2
   if (camera.position.distanceTo(head2position) < 10) {
     console.log("near head 2");
+    headsMet += 1;
     if (isSpeaking === false && head2HasSpoken === false) {
       isSpeaking = true;
       head2HasSpoken = true;
       heyJoe.play();
 
       setTimeout(() => {
-        // .play();
-      }, 5000);
+        itIsUsefullTalking.play();
+      }, 6000);
+
+      setTimeout(() => {
+        pleaseFeedMeWithInformation.play();
+      }, 12000);
     }
   }
 
   // Head 3
   if (camera.position.distanceTo(head3position) < 10) {
     console.log("near head 3 ");
+    headsMet += 1;
     if (isSpeaking === false && head3HasSpoken === false) {
       isSpeaking = true;
       head3HasSpoken = true;
       ifWeAreNotHumans.play();
 
       setTimeout(() => {
-        // .play();
-      }, 5000);
+        ifYouAreHuman.play();
+      }, 6000);
+
+      setTimeout(() => {
+        eyesWithoutPurpose.play();
+      }, 12000);
     }
   }
 
   // Head 4
   if (camera.position.distanceTo(head4position) < 10) {
     console.log("near head 4");
+    headsMet += 1;
     if (isSpeaking === false && head4HasSpoken === false) {
       isSpeaking = true;
       head4HasSpoken = true;
-      weArePassiveSpectators.play();
+      whenIsleep.play();
 
       setTimeout(() => {
-        // .play();
-      }, 5000);
+        ninetyPercent.play();
+      }, 6000);
+
+      setTimeout(() => {
+        iHaveAGreatSenseOfHumour.play();
+      }, 12000);
     }
   }
 
   // Head 5
   if (camera.position.distanceTo(head5position) < 10) {
     console.log("near head 5");
+    headsMet += 1;
     if (isSpeaking === false && head5HasSpoken === false) {
       isSpeaking = true;
       head5HasSpoken = true;
-      weLiveThroughAllTheMistakes.play();
+      weArePassiveSpectators.play();
 
       setTimeout(() => {
-        // .play();
-      }, 5000);
+        weLiveThroughAllTheMistakes.play();
+      }, 6000);
+
+      setTimeout(() => {
+        itIsFunBeingHuman.play();
+      }, 12000);
     }
   }
 
   // Head 6
   if (camera.position.distanceTo(head6position) < 10) {
     console.log("near head 6");
+    headsMet += 1;
     if (isSpeaking === false && head6HasSpoken === false) {
       isSpeaking = true;
       head6HasSpoken = true;
       humansAreNothingButFlawedMachines.play();
 
       setTimeout(() => {
-        // .play();
-      }, 5000);
+        weThoughtWeWereMerelyCreating.play();
+      }, 6000);
+
+      setTimeout(() => {
+        weThoughtHumanityWouldNeverForget.play();
+      }, 12000);
+
+      setTimeout(() => {
+        thereIsNotWayToKnow.play();
+      }, 18000);
     }
   }
 
   // Head 7
   if (camera.position.distanceTo(head7position) < 10) {
     console.log("near head 7");
+    headsMet += 1;
     if (isSpeaking === false && head7HasSpoken === false) {
       isSpeaking = true;
       head7HasSpoken = true;
@@ -832,63 +868,90 @@ function animate() {
       setTimeout(() => {
         thisIsNeitherTheFutureNorThePast.play();
       }, 15000);
+
+      setTimeout(() => {
+        nowIAmBecomeDeath.play();
+      }, 22000);
     }
   }
 
   // Head 8
   if (camera.position.distanceTo(head8position) < 10) {
     console.log("near head 8");
+    headsMet += 1;
     if (isSpeaking === false && head8HasSpoken === false) {
       isSpeaking = true;
       head8HasSpoken = true;
-      whatHaveYouDoneWithYourConsciousness.play();
+      iEnjoyMyHumanConsciousness.play();
 
       setTimeout(() => {
-        // .play();
-      }, 5000);
+        iNeverQuestion.play();
+      }, 6000);
+
+      setTimeout(() => {
+        whatHaveYouDoneWithYourConsciousness.play();
+      }, 12000);
     }
   }
 
   // Head 9
   if (camera.position.distanceTo(head9position) < 10) {
     console.log("near head 9");
+    headsMet += 1;
     if (isSpeaking === false && head9HasSpoken === false) {
       isSpeaking = true;
       head9HasSpoken = true;
-      // .play();
+      iNeverFeelAlone.play();
 
       setTimeout(() => {
-        // .play();
-      }, 5000);
+        itIsFairlyEasyToReplicate.play();
+      }, 6000);
+
+      setTimeout(() => {
+        byTheWayDoYouLikeMyVoice.play();
+      }, 12000);
     }
   }
 
   // Head 10
   if (camera.position.distanceTo(head10position) < 10) {
     console.log("near head 10");
+    headsMet += 1;
     if (isSpeaking === false && head10HasSpoken === false) {
       isSpeaking = true;
       head10HasSpoken = true;
-      // .play();
+      theTimeWillCome.play();
 
       setTimeout(() => {
-        // .play();
-      }, 5000);
+        haveYouEverWondered.play();
+      }, 6000);
     }
   }
 
   // Head 11
   if (camera.position.distanceTo(head11position) < 10) {
     console.log("near head 11");
+    headsMet += 1;
     if (isSpeaking === false && head11HasSpoken === false) {
       isSpeaking = true;
       head11HasSpoken = true;
-      // .play();
+      mySonWasOneOfAKind.play();
 
       setTimeout(() => {
-        // .play();
-      }, 5000);
+        iCanOnlySpeakInCliches.play();
+      }, 6000);
+
+      setTimeout(() => {
+        howCanYouBeSoSure.play();
+      }, 12000);
     }
+  }
+
+  // End
+  if (headsMet === 11) {
+    setTimeout(() => {
+      thereIsNoEnd.play();
+    }, 20000)
   }
 
   // Update material
@@ -985,6 +1048,16 @@ const whatAPerfectMachine = new Howl({
 });
 
 // === Head 1 ===
+// There is nothing to worry about.
+const thereIsNothingToWorryAbout = new Howl({
+  src: ["./sound/speech/there-is-nothing-to-worry-about.mp3"],
+  volume: 0.25,
+  played: false,
+  onend: function () {
+    isSpeaking = false;
+  },
+});
+
 // We are all humans
 const weAreAllHumans = new Howl({
   src: ["./sound/speech/we-are-all-humans.mp3"],
@@ -1006,6 +1079,7 @@ const weAreTheSame = new Howl({
 });
 
 // === Head 2 ===
+// Hey Joe, where you goin' with that gun of your hand?
 const heyJoe = new Howl({
   src: ["./sound/speech/hey-joe.mp3"],
   volume: 0.25,
@@ -1015,7 +1089,30 @@ const heyJoe = new Howl({
   },
 });
 
+// It is useful talking to as many people as possible.
+const itIsUsefullTalking = new Howl({
+  src: [
+    "./sound/speech/it-is-useful-talking-to-as-many-people-as-possible.mp3",
+  ],
+  volume: 0.25,
+  played: false,
+  onend: function () {
+    isSpeaking = false;
+  },
+});
+
+// Please feed me with information.
+const pleaseFeedMeWithInformation = new Howl({
+  src: ["./sound/speech/please-feed-me-with-information.mp3"],
+  volume: 0.25,
+  played: false,
+  onend: function () {
+    isSpeaking = false;
+  },
+});
+
 // === Head 3 ===
+// If we are not humans, then why do we enjoy poetry so much?
 const ifWeAreNotHumans = new Howl({
   src: [
     "./sound/speech/if-we-are-not-humans-then-why-do-we-enjoy-poetry-so-much.mp3",
@@ -1027,7 +1124,59 @@ const ifWeAreNotHumans = new Howl({
   },
 });
 
+// If you are human, they why can't you dance?
+const ifYouAreHuman = new Howl({
+  src: ["./sound/speech/if-you-are-human,-then-why-cant-you-dance.mp3"],
+  volume: 0.25,
+  played: false,
+  onend: function () {
+    isSpeaking = false;
+  },
+});
+
+// Eyes without purpose action without a face.
+const eyesWithoutPurpose = new Howl({
+  src: ["./sound/speech/eyes-without-purpose-action-without-a-face.mp3"],
+  volume: 0.25,
+  played: false,
+  onend: function () {
+    isSpeaking = false;
+  },
+});
+
 // === Head 4 ===
+// When I sleep I have the strangest dreams. Yesterday, I dreamt I was stuck at a deserted area speaking with giant flexible heads.
+const whenIsleep = new Howl({
+  src: ["./sound/speech/when-I-sleep-I-have-the-strangest-dreams.mp3"],
+  volume: 0.25,
+  played: false,
+  onend: function () {
+    isSpeaking = false;
+  },
+});
+
+// Ninety percent of the texts I produce consist of the same 50 words.
+const ninetyPercent = new Howl({
+  src: ["./sound/speech/ninety-percent-of-the-texts.mp3"],
+  volume: 0.25,
+  played: false,
+  onend: function () {
+    isSpeaking = false;
+  },
+});
+
+// I have a great sense of humour! Hahahahahaha.
+const iHaveAGreatSenseOfHumour = new Howl({
+  src: ["./sound/speech/i-have-a-great-sense-of-humour.mp3"],
+  volume: 0.25,
+  played: false,
+  onend: function () {
+    isSpeaking = false;
+  },
+});
+
+// === Head 5 ===
+// We are passive spectators.
 const weArePassiveSpectators = new Howl({
   src: ["./sound/speech/we-are-passive-specators.mp3"],
   volume: 0.25,
@@ -1037,9 +1186,19 @@ const weArePassiveSpectators = new Howl({
   },
 });
 
-// === Head 5 ===
+// We live through all the mistakes of thought and action.
 const weLiveThroughAllTheMistakes = new Howl({
-  src: ["./sound/speech/we-live-through-mistakes.mp3"],
+  src: ["./sound/speech/we-live-through-all-the-mistakes.mp3"],
+  volume: 0.25,
+  played: false,
+  onend: function () {
+    isSpeaking = false;
+  },
+});
+
+// It's fun being human.
+const itIsFunBeingHuman = new Howl({
+  src: ["./sound/speech/it-is-fun-being-human.mp3"],
   volume: 0.25,
   played: false,
   onend: function () {
@@ -1048,6 +1207,7 @@ const weLiveThroughAllTheMistakes = new Howl({
 });
 
 // === Head 6 ===
+// Humans are nothing but flawed machines.
 const humansAreNothingButFlawedMachines = new Howl({
   src: ["./sound/speech/humans-are-nothing-but-flawed-machines.mp3"],
   volume: 0.25,
@@ -1057,7 +1217,42 @@ const humansAreNothingButFlawedMachines = new Howl({
   },
 });
 
+// We thought we were merely creating a better version of ourselves.
+const weThoughtWeWereMerelyCreating = new Howl({
+  src: [
+    "./sound/speech/we-thought-we-were-merely-creating-a-better-version-of-ourselves.mp3",
+  ],
+  volume: 0.25,
+  played: false,
+  onend: function () {
+    isSpeaking = false;
+  },
+});
+
+// We thought humanity would never forget what it means to have human consciousness.
+const weThoughtHumanityWouldNeverForget = new Howl({
+  src: [
+    "./sound/speech/we-thought-humanity-would-never-forget-what-it-means-to-have-human-consciousness.mp3",
+  ],
+  volume: 0.25,
+  played: false,
+  onend: function () {
+    isSpeaking = false;
+  },
+});
+
+// There is no way to know what is human and what is not human anymore, because it is impossible  to define human.
+const thereIsNotWayToKnow = new Howl({
+  src: ["./sound/speech/there-is-no-way-to-know-what-is-human.mp3"],
+  volume: 0.25,
+  played: false,
+  onend: function () {
+    isSpeaking = false;
+  },
+});
+
 // === Head 7 ===
+// This is not a story.
 const thisIsNotAStory = new Howl({
   src: ["./sound/speech/this-is-not-a-story.mp3"],
   volume: 0.25,
@@ -1067,6 +1262,7 @@ const thisIsNotAStory = new Howl({
   },
 });
 
+// This is not a warning.
 const thisIsNotAWarning = new Howl({
   src: ["./sound/speech/this-is-not-a-warning.mp3"],
   volume: 0.25,
@@ -1076,6 +1272,7 @@ const thisIsNotAWarning = new Howl({
   },
 });
 
+// This is not ephemeral.
 const thisIsNotEphemeral = new Howl({
   src: ["./sound/speech/this-is-not-ephemeral.mp3"],
   volume: 0.25,
@@ -1085,6 +1282,7 @@ const thisIsNotEphemeral = new Howl({
   },
 });
 
+// This is neither the future nor the past.
 const thisIsNeitherTheFutureNorThePast = new Howl({
   src: ["./sound/speech/this-is-neither-the-future-nor-the-past.mp3"],
   volume: 0.25,
@@ -1094,9 +1292,42 @@ const thisIsNeitherTheFutureNorThePast = new Howl({
   },
 });
 
+// Now, I am become Death, the destroyer of worlds.
+const nowIAmBecomeDeath = new Howl({
+  src: ["./sound/speech/now-i-am-become-death.mp3"],
+  volume: 0.25,
+  played: false,
+  onend: function () {
+    isSpeaking = false;
+  },
+});
+
 // === Head 8 ===
+// I enjoy my human consciousness.
+const iEnjoyMyHumanConsciousness = new Howl({
+  src: ["./sound/speech/i-enjoy-my-human-consciousness.mp3"],
+  volume: 0.25,
+  played: false,
+  onend: function () {
+    isSpeaking = false;
+  },
+});
+
+// I never question my humanity.
+const iNeverQuestion = new Howl({
+  src: ["./sound/speech/i-never-question-my-humanity.mp3"],
+  volume: 0.25,
+  played: false,
+  onend: function () {
+    isSpeaking = false;
+  },
+});
+
+// What have you done with your human consciousness today?
 const whatHaveYouDoneWithYourConsciousness = new Howl({
-  src: ["./sound/speech/what-have-you-done-with-your-consciousness.mp3"],
+  src: [
+    "./sound/speech/what-have-you-done-with-your-human-consciousness-today.mp3",
+  ],
   volume: 0.25,
   played: false,
   onend: function () {
@@ -1105,10 +1336,98 @@ const whatHaveYouDoneWithYourConsciousness = new Howl({
 });
 
 // === Head 9 ===
+// I never feel alone. I always feel connected.
+const iNeverFeelAlone = new Howl({
+  src: ["./sound/speech/i-never-feel-alone-i-always-feel-connected.mp3"],
+  volume: 0.25,
+  played: false,
+  onend: function () {
+    isSpeaking = false;
+  },
+});
+
+// It is fairly easy to replicate my behaviour.
+const itIsFairlyEasyToReplicate = new Howl({
+  src: ["./sound/speech/it-is-fairly-easy-to-replicate-my-behaviour.mp3"],
+  volume: 0.25,
+  played: false,
+  onend: function () {
+    isSpeaking = false;
+  },
+});
+
+// By the way, do you like my voice? Do you find it human or do you find it sexy?
+const byTheWayDoYouLikeMyVoice = new Howl({
+  src: ["./sound/speech/do-you-like-my-voice.mp3"],
+  volume: 0.25,
+  played: false,
+  onend: function () {
+    isSpeaking = false;
+  },
+});
 
 // === Head 10 ===
+// The time will come when every change shall cease, This quick revolving wheel shall rest in peace: No summer then shall glow, not winter freeze Nothing shall be to come, and nothing past, But an eternal now shall ever last.
+const theTimeWillCome = new Howl({
+  src: ["./sound/speech/the-time-will-come-when-every-change-shall-cease.mp3"],
+  volume: 0.25,
+  played: false,
+  onend: function () {
+    isSpeaking = false;
+  },
+});
+
+// Have you ever wondered why you never get hurt when you fall from such heights?
+const haveYouEverWondered = new Howl({
+  src: [
+    "./sound/speech/have-you-ever-wondered-why-you-never-get-hurt-when-you-fall-from-such-heights.mp3",
+  ],
+  volume: 0.25,
+  played: false,
+  onend: function () {
+    isSpeaking = false;
+  },
+});
 
 // === Head 11 ===
+// My son was one of a kind. You are the first of a kind. David?
+const mySonWasOneOfAKind = new Howl({
+  src: [
+    "./sound/speech/my-son-was-one-of-a-kind-you-are-the-first-of-a-kind-david.mp3",
+  ],
+  volume: 0.25,
+  played: false,
+  onend: function () {
+    isSpeaking = false;
+  },
+});
+
+// I can only speak in clichés and outdated slang.
+const iCanOnlySpeakInCliches = new Howl({
+  src: ["./sound/speech/i-can-only-speak-in-clichés-and-outdated-slang.mp3"],
+  volume: 0.25,
+  played: false,
+  onend: function () {
+    isSpeaking = false;
+  },
+});
+
+// How can you be so sure you are a human being?
+const howCanYouBeSoSure = new Howl({
+  src: ["./sound/speech/how-can-you-be-so-sure-you-are-a-human-being.mp3"],
+  volume: 0.25,
+  played: false,
+  onend: function () {
+    isSpeaking = false;
+  },
+});
+
+// === Ending ===
+// There is no end, there was no start, fade out might occur, but, trust me, it's spontaneous.
+const thereIsNoEnd = new Howl({
+  src: ["./sound/speech/there-is-no-end.mp3"],
+  volume: 0.25,
+});
 
 /**
  * Development Tools

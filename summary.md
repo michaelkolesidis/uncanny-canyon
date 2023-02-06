@@ -93,3 +93,10 @@ Tragicomedy
 
 Endgame
 Last and First Men
+
+
+Cave: symbolism - the dawn of humanity
+
+attempting to connects the dots from the dawn of humanity to its demise
+
+Humanity will not go extinct, it will simply become irrelevant.
