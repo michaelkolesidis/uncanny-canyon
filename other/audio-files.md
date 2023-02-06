@@ -10,7 +10,7 @@
     * Name: djembe
 
 
-## Speech Files
+## Speech
 
 ### Cave entrance
 * Listen patiently.

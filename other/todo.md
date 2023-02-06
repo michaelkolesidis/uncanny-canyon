@@ -7,7 +7,7 @@ Inform about the changes
 - ~~Fix repeating bug~~
 
 ## Elements positioning
-- Move head 1 further back
+- ~~Move head 1 further back~~
 
 ## General
 
@@ -28,7 +28,7 @@ Inform about the changes
 - Add stereo
 - Add echo effect
 - ~~Add sound when falling out of the level~~
-- Adjust all volumes
+- ~~Adjust all volumes~~
 
 ## Accessibility
 

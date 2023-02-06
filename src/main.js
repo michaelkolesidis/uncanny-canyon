@@ -20,25 +20,29 @@
 // distributed on this website without written permission.
 
 import * as THREE from "three";
-import Stats from "three/addons/libs/stats.module.js";
+// import Stats from "three/addons/libs/stats.module.js";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import { Octree } from "three/examples/jsm/math/Octree.js";
-import { OctreeHelper } from "three/examples/jsm/helpers/OctreeHelper.js";
+// import { OctreeHelper } from "three/examples/jsm/helpers/OctreeHelper.js";
 import { Capsule } from "three/examples/jsm/math/Capsule.js";
-import { GUI } from "three/examples/jsm/libs/lil-gui.module.min.js";
+// import { GUI } from "three/examples/jsm/libs/lil-gui.module.min.js";
 import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer.js";
 import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass.js";
 import { DotScreenPass } from "three/examples/jsm/postprocessing/DotScreenPass.js";
 import { ShaderPass } from "three/examples/jsm/postprocessing/ShaderPass.js";
 import { GammaCorrectionShader } from "three/examples/jsm/shaders/GammaCorrectionShader.js";
-import { Howl, Howler } from "howler";
+import { Howl /* , Howler */ } from "howler";
+import consoleMessage from "./scripts/consoleMessage.js";
 
 /**
  * Basics
  */
+// Console message
+consoleMessage();
+
 // Debug panel
-const gui = new GUI({ width: 200 });
-gui.show(gui._hidden);
+// const gui = new GUI({ width: 200 });
+// gui.show(gui._hidden);
 
 // Container
 const container = document.getElementById("container");
@@ -47,7 +51,7 @@ const container = document.getElementById("container");
 const scene = new THREE.Scene();
 
 // Stats
-const stats = new Stats();
+// const stats = new Stats();
 // stats.domElement.style.position = "absolute";
 // stats.domElement.style.top = "0px";
 // container.appendChild(stats.domElement);
@@ -438,13 +442,13 @@ loader.load("collision-world.glb", (gltf) => {
     }
   });
 
-  const helper = new OctreeHelper(worldOctree);
-  helper.visible = false;
-  scene.add(helper);
+  // const helper = new OctreeHelper(worldOctree);
+  // helper.visible = false;
+  // scene.add(helper);
 
-  gui.add({ debug: false }, "debug").onChange(function (value) {
-    helper.visible = value;
-  });
+  // gui.add({ debug: false }, "debug").onChange(function (value) {
+  //   helper.visible = value;
+  // });
 
   animate();
 });
@@ -729,12 +733,12 @@ function animate() {
       }, 20000);
     }
   }
-
+  console.log(headsMet);
   // Head 1
   if (camera.position.distanceTo(head1position) < 10) {
     // console.log("near head 1");
-    headsMet += 1;
     if (isSpeaking === false && head1HasSpoken === false) {
+      headsMet += 1;
       isSpeaking = true;
       head1HasSpoken = true;
       thereIsNothingToWorryAbout.play();
@@ -752,8 +756,8 @@ function animate() {
   // Head 2
   if (camera.position.distanceTo(head2position) < 10) {
     // console.log("near head 2");
-    headsMet += 1;
     if (isSpeaking === false && head2HasSpoken === false) {
+      headsMet += 1;
       isSpeaking = true;
       head2HasSpoken = true;
       heyJoe.play();
@@ -771,8 +775,8 @@ function animate() {
   // Head 3
   if (camera.position.distanceTo(head3position) < 10) {
     // console.log("near head 3 ");
-    headsMet += 1;
     if (isSpeaking === false && head3HasSpoken === false) {
+      headsMet += 1;
       isSpeaking = true;
       head3HasSpoken = true;
       ifWeAreNotHumans.play();
@@ -790,8 +794,8 @@ function animate() {
   // Head 4
   if (camera.position.distanceTo(head4position) < 10) {
     // console.log("near head 4");
-    headsMet += 1;
     if (isSpeaking === false && head4HasSpoken === false) {
+      headsMet += 1;
       isSpeaking = true;
       head4HasSpoken = true;
       whenIsleep.play();
@@ -809,8 +813,8 @@ function animate() {
   // Head 5
   if (camera.position.distanceTo(head5position) < 10) {
     // console.log("near head 5");
-    headsMet += 1;
     if (isSpeaking === false && head5HasSpoken === false) {
+      headsMet += 1;
       isSpeaking = true;
       head5HasSpoken = true;
       weArePassiveSpectators.play();
@@ -828,8 +832,8 @@ function animate() {
   // Head 6
   if (camera.position.distanceTo(head6position) < 10) {
     // console.log("near head 6");
-    headsMet += 1;
     if (isSpeaking === false && head6HasSpoken === false) {
+      headsMet += 1;
       isSpeaking = true;
       head6HasSpoken = true;
       humansAreNothingButFlawedMachines.play();
@@ -851,8 +855,8 @@ function animate() {
   // Head 7
   if (camera.position.distanceTo(head7position) < 10) {
     // console.log("near head 7");
-    headsMet += 1;
     if (isSpeaking === false && head7HasSpoken === false) {
+      headsMet += 1;
       isSpeaking = true;
       head7HasSpoken = true;
       thisIsNotAStory.play();
@@ -878,8 +882,8 @@ function animate() {
   // Head 8
   if (camera.position.distanceTo(head8position) < 10) {
     // console.log("near head 8");
-    headsMet += 1;
     if (isSpeaking === false && head8HasSpoken === false) {
+      headsMet += 1;
       isSpeaking = true;
       head8HasSpoken = true;
       iEnjoyMyHumanConsciousness.play();
@@ -897,8 +901,8 @@ function animate() {
   // Head 9
   if (camera.position.distanceTo(head9position) < 10) {
     // console.log("near head 9");
-    headsMet += 1;
     if (isSpeaking === false && head9HasSpoken === false) {
+      headsMet += 1;
       isSpeaking = true;
       head9HasSpoken = true;
       iNeverFeelAlone.play();
@@ -916,8 +920,8 @@ function animate() {
   // Head 10
   if (camera.position.distanceTo(head10position) < 10) {
     // console.log("near head 10");
-    headsMet += 1;
     if (isSpeaking === false && head10HasSpoken === false) {
+      headsMet += 1;
       isSpeaking = true;
       head10HasSpoken = true;
       theTimeWillCome.play();
@@ -931,8 +935,8 @@ function animate() {
   // Head 11
   if (camera.position.distanceTo(head11position) < 10) {
     // console.log("near head 11");
-    headsMet += 1;
     if (isSpeaking === false && head11HasSpoken === false) {
+      headsMet += 1;
       isSpeaking = true;
       head11HasSpoken = true;
       mySonWasOneOfAKind.play();
@@ -970,7 +974,7 @@ function animate() {
   }
 
   effectComposer.render();
-  stats.update();
+  // stats.update();
   requestAnimationFrame(animate);
 }
 
