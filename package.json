@@ -1,16 +1,17 @@
 {
   "name": "uncanny-canyon",
   "author": "Michael Kolesidis",
+  "license": "UNLICENSED",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build"
   },
   "devDependencies": {
-    "vite": "^4.0.4"
+    "vite": "^4.1.1"
   },
   "dependencies": {
     "howler": "^2.2.3",
-    "three": "^0.148.0"
+    "three": "^0.149.0"
   }
 }

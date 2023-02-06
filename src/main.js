@@ -97,7 +97,7 @@ enterButton.addEventListener("click", () => {
 
   setTimeout(() => {
     ambiance.play();
-  }, 1000);
+  }, 1500);
 });
 
 const instructions = Instructions();
