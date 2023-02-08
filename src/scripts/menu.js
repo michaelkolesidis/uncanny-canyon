@@ -50,4 +50,3 @@ export const Instructions = () => {
 
   return instructions;
 };
-

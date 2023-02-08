@@ -24,6 +24,7 @@ body {
   z-index: 2;
 }
 
+/****** Menus ******/
 #main-menu,
 #ending {
   position: fixed;
@@ -92,6 +93,7 @@ body {
   z-index: 3;
 }
 
+/****** Subtitles ******/
 #subtitles-button {
   position: absolute;
   top: 0;
@@ -107,7 +109,7 @@ body {
   bottom: 2em;
   padding: 0.2em;
   opacity: 0;
-  background: black;
+  background: var(--black);
   color: var(--white);
   width: fit-content;
   max-width: 60ch;

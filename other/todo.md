@@ -1,6 +1,6 @@
 # To-Do
 
-Inform about the changes
+~~Inform about the changes~~
 
 ## Bug Fixes
 
@@ -32,10 +32,10 @@ Inform about the changes
 
 ## Accessibility
 
-- Add subtitles
+- ~~Add subtitles~~
 
 ## Texts
 
-- Update summary
+- ~~Update summary~~
 - Write note from the artist
-- Update bio
+- ~~Update bio~~
