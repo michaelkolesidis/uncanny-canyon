@@ -44,7 +44,7 @@ export const Instructions = () => {
   instructions.setAttribute("id", "instructions");
   instructions.innerHTML += `Please use headphones for a better experience. `;
   instructions.innerHTML += `Try pressing the WASD keys to move forward, left, back, and right respectively. You can also use the ARROW keys. `;
-  instructions.innerHTML += `You can look around by moving your MOUSE around (right-click to lock, ESC to unlock). `;
+  instructions.innerHTML += `You can look around by moving your MOUSE around (left-click to lock cursor, ESC to unlock). `;
   instructions.innerHTML += `You can jump by pressing SPACE. `;
   instructions.innerHTML += `Do not forget to breathe. `;
 
