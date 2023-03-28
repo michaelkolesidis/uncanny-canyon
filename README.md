@@ -6,7 +6,7 @@ by michael kolesidis
 
 A 3D web experience, an interactive spatiotemporal poem, set in an era when humanness appears to be on the verge of being rendered undefinable. Participants explore a seemingly deserted canyon, while interacting with a synecdochical representation of artificial intelligence, unraveling a concurrency of a multiplicity of fragmented, albeit interwoven, narratives. A hypnagogic glimpse into hitherto unseen interpretations of humanity: simultaneously dehypostasized and oversemantizised, uncannily excluded from the realm of knowable.
 
-The piece explores redefinitions and reinterpretations of humanness and non-humanness with their reciprocal conflicts and synergies. It dives deep into the vastness of a technological hyperreality, examining perceptual transformations in our ability to delineate human consciousness. During this process, novel definitions of uncanniness emerge, as our concern that "humanity will not go extinct, but will simply become irrelevant" move from the background to the foreground of our civilization.
+The piece explores redefinitions and reinterpretations of humanness and non-humanness with their reciprocal conflicts and synergies. It dives deep into the vastness of a technological hyperreality, examining perceptual transformations in our ability to delineate human consciousness. During this process, novel definitions of uncanniness emerge, as our concern that "humanity will not go extinct, but will simply become irrelevant" moves from the background to the foreground of our civilization.
 
 ## Artwork Documentation
 
