@@ -33,7 +33,7 @@ export const Menu = () => {
 
   const credits = document.createElement("div");
   credits.setAttribute("id", "credits");
-  credits.innerHTML = `michael kolesidis`;
+  credits.innerHTML = `<a id="credits" href="https://michaelkolesidis.com" target="_blank">michael kolesidis</a>`;
   mainMenu.appendChild(credits);
 
   return mainMenu;

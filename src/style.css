@@ -78,13 +78,19 @@ body {
   text-justify: auto;
 }
 
-#credits {
+#credits > a {
+  color: var(--white);
+  text-decoration: none;
   font-size: 1.6em;
   position: absolute;
   bottom: 0;
   right: 0;
   padding: 1rem;
   font-weight: 900;
+}
+
+#credits > a:hover {
+  color: var(--main);
 }
 
 #ending {
