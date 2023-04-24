@@ -15,7 +15,7 @@
 body {
   background-color: var(--black);
   color: var(--white);
-  font-size: 13px;
+  font-size: 2vh;
   overscroll-behavior: none;
   overflow: hidden;
 }
@@ -41,7 +41,7 @@ body {
 }
 
 #heading {
-  font-size: 10em;
+  font-size: 20vh;
   line-height: 0.7em;
   font-weight: 900;
   text-align: left;
@@ -53,9 +53,9 @@ body {
   color: var(--white);
   border: 2px solid var(--white);
   padding: 0.3em 0.5em;
-  margin: 4em 0 1.4em 0;
+  margin: 2em 0 1.4em 0;
   cursor: pointer;
-  font-size: 3em;
+  font-size: 6vh;
   font-weight: 900;
   width: 10em;
 }
@@ -70,7 +70,7 @@ body {
 }
 
 #instructions {
-  font-size: 1.4em;
+  font-size: 3vh;
   text-align: left;
   max-width: 40ch;
   letter-spacing: 0.15em;
@@ -102,11 +102,11 @@ body {
 /****** Subtitles ******/
 #subtitles-button {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 1vh;
+  left: 1vh;
   cursor: pointer;
   padding: 0.4em;
-  font-size: 1.1em;
+  font-size: 3.5vh;
 }
 
 #subtitles {
