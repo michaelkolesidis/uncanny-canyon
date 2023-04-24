@@ -24,4 +24,4 @@ The piece explores redefinitions and reinterpretations of humanness and non-huma
 
 ## Short Bio
 
-Michael Kolesidis is a multidisciplinary new media artist, with a background in creative development, performance art and computer science. He works at the intersection of performativity and digitality, attempting to blend art with technology with varying degrees of success. Nowadays, he explores graphics programming and a multitude of new media technologies to create web art, audiovisual art and physical installations. He has presented his work in Greece and the UK.
+Michael Kolesidis is a multidisciplinary new media artist, with a background in creative development, performance art and computer science. He works at the intersection of performativity and digitality, attempting to blend art with digital technology with varying degrees of success. Nowadays, he explores graphics programming and a multitude of new media technologies to create web art, audiovisual art and physical installations. He has lived, worked, and studied in Greece, Spain, and the UK, and has presented his work in Greece and the UK.
