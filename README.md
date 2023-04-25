@@ -3,9 +3,10 @@
 by michael kolesidis
 
 ![adaf logo](./media/adaf.jpg)
-Featured in Athens Digital Arts Festival 2023
 
-[uncanny cnayon in ADAF](https://online.adaf.gr/video/uncanny-canyon/)
+**Featured in Athens Digital Arts Festival 2023**
+
+[**uncanny canyon in ADAF**](https://online.adaf.gr/video/uncanny-canyon/)
 
 ## Summary
 
