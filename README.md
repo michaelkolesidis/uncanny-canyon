@@ -2,6 +2,11 @@
 
 by michael kolesidis
 
+![adaf logo](./media/adaf.jpg)
+Featured in Athens Digital Arts Festival 2023
+
+[uncanny cnayon in ADAF](https://online.adaf.gr/video/uncanny-canyon/)
+
 ## Summary
 
 A 3D web experience, an interactive spatiotemporal poem, set in an era when humanness appears to be on the verge of being rendered undefinable. Participants explore a seemingly deserted canyon, while interacting with a synecdochical representation of artificial intelligence, unraveling a concurrency of a multiplicity of fragmented, albeit interwoven, narratives. A hypnagogic glimpse into hitherto unseen interpretations of humanity: simultaneously dehypostasized and oversemantizised, uncannily excluded from the realm of knowable.
