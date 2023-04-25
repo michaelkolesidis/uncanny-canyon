@@ -64,6 +64,17 @@ consoleMessage();
 
 // Container
 const container = document.getElementById("container");
+const elem = document.documentElement;
+
+/* View in fullscreen */
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.webkitRequestFullscreen) {
+    /* Safari */
+    elem.webkitRequestFullscreen();
+  }
+}
 
 // Scene
 const scene = new THREE.Scene();
@@ -127,6 +138,18 @@ subtitlesButton.addEventListener("click", () => {
     subtitlesButton.style.color = `rgb(199, 154, 115)`;
   }
 });
+
+// Fullscreen Button
+const fullScreenButton = document.createElement("div");
+fullScreenButton.setAttribute("id", "fullscreen-button");
+fullScreenButton.innerHTML = `<img src="./icons/fullscreen.svg" />`;
+document.body.appendChild(fullScreenButton);
+
+fullScreenButton.addEventListener("click", () => {
+  openFullscreen();
+});
+
+console.log(fullScreenButton);
 
 // Ending
 const ending = Ending();
@@ -714,6 +737,12 @@ let headsMet = 0;
 const clock = new THREE.Clock();
 function animate() {
   const deltaTime = Math.min(0.05, clock.getDelta()) / STEPS_PER_FRAME;
+
+  if (window.innerHeight === screen.height) {
+    fullScreenButton.style.display = "none";
+  } else {
+    fullScreenButton.style.display = "block";
+  }
 
   /**
    * Trigger Sounds

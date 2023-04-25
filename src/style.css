@@ -124,3 +124,12 @@ body {
   font-size: 2em;
   margin: auto;
 }
+
+#fullscreen-button {
+  z-index: 1;
+  position: absolute;
+  bottom: 0.5em;
+  left: 0.5em;
+  width: 7.5vh;
+  cursor: pointer;
+}
