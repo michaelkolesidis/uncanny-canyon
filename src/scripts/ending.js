@@ -37,7 +37,7 @@ export const Ending = () => {
   artistsNoteButton.innerText = "artist's note";
   ending.appendChild(artistsNoteButton);
   artistsNoteButton.addEventListener("click", () => {
-    artistsNoteButton.innerHTML = `coming soon`;
+    artistsNoteButton.innerHTML = `not needed`;
   });
 
   return ending;
