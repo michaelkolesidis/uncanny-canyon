@@ -1,7 +1,8 @@
 // Author: Michael Kolesidis
 // Title: uncanny canyon
 
-// Copyright (c) 2023 Michael Kolesidis - https://michaelkolesidis.com/
+// Copyright (c) 2023 Michael Kolesidis <michael.kolesidis@gmail.com>
+// https://michaelkolesidis.com/
 
 // Reproduction of any of the artwork on this website
 // for commercial use is not permitted without first
