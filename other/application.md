@@ -1,12 +1,14 @@
 # Application
 
 ## Links
-https://tinyurl.com/uncannycanyon
 
-https://docs.google.com/document/d/e/2PACX-1vR7e_QrmXwjhfkZQIMAA8xCZn-44PgAbLt0y4pO6Ta9PMRR9TXU9VRuNbVSHpYpk7TOPu_vHmjlNBOX/pub 
+<https://tinyurl.com/uncannycanyon>
+
+<https://docs.google.com/document/d/e/2PACX-1vR7e_QrmXwjhfkZQIMAA8xCZn-44PgAbLt0y4pO6Ta9PMRR9TXU9VRuNbVSHpYpk7TOPu_vHmjlNBOX/pub>
 
 ## Application Form
-1.Fields appearing both in Web Art and Games Categories: 
+
+1.Fields appearing both in Web Art and Games Categories:
 
 ELIGIBILITY FOR DISABLED PEOPLE*
 Eligible

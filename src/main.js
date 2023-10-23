@@ -150,8 +150,6 @@ fullScreenButton.addEventListener("click", () => {
   openFullscreen();
 });
 
-console.log(fullScreenButton);
-
 // Ending
 const ending = Ending();
 document.body.appendChild(ending);
@@ -1047,7 +1045,7 @@ function animate() {
             subtitles.style.opacity = 0;
           }, 5000);
         }
-      }, 22000);
+      }, 23000);
     }
   }
 

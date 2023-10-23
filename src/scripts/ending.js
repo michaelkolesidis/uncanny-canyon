@@ -25,20 +25,17 @@ export const Ending = () => {
   ending.setAttribute("id", "ending");
   ending.style.pointerEvents = "none";
 
+  const message = document.createElement("div");
+  message.setAttribute("id", "instructions");
+  message.innerText = "uncanny canyon was created by michael kolesidis for the athens digital arts festival 2023";
+  ending.appendChild(message);
+
   const restartButton = document.createElement("button");
   restartButton.setAttribute("id", "button");
   restartButton.innerText = "restart";
   ending.appendChild(restartButton);
   restartButton.addEventListener("click", () => {
     window.location.reload();
-  });
-
-  const artistsNoteButton = document.createElement("button");
-  artistsNoteButton.setAttribute("id", "button");
-  artistsNoteButton.innerText = "artist's note";
-  ending.appendChild(artistsNoteButton);
-  artistsNoteButton.addEventListener("click", () => {
-    artistsNoteButton.innerHTML = `not needed`;
   });
 
   return ending;

@@ -7,6 +7,7 @@
 - ~~Fix repeating bug~~
 
 ## Elements positioning
+
 - ~~Move head 1 further back~~
 
 ## General
@@ -37,5 +38,4 @@
 ## Texts
 
 - ~~Update summary~~
-- Write note from the artist
 - ~~Update bio~~
