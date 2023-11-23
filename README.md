@@ -31,3 +31,10 @@ The piece explores redefinitions and reinterpretations of humanness and non-huma
 ## Short Bio
 
 Michael Kolesidis is a multidisciplinary new media artist, with a background in creative development, performance art and computer science. He works at the intersection of performativity and digitality, attempting to blend art with digital technology with varying degrees of success. Nowadays, he explores graphics programming and a multitude of new media technologies to create web art, audiovisual art and physical installations. He has lived, worked, and studied in Greece, Spain, and the UK, and has presented his work in Greece and the UK.
+
+## 💖 Support the Project
+
+Thank you so much for your interest in my project! If you want to go a step further and support my work, buy me a coffee:
+
+<a href='https://ko-fi.com/michaelkolesidis' target='_blank'><img src='https://cdn.ko-fi.com/cdn/kofi1.png' style='border:0px;height:45px;' alt='Buy Me a Coffee at ko-fi.com' /></a>
+
