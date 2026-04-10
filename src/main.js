@@ -169,7 +169,7 @@ const loader = new GLTFLoader().setPath('./models/gltf/');
 /**
  * Lights
  */
-const fillLight1 = new THREE.HemisphereLight(0x4488bb, 0x002244, 2.0);
+const fillLight1 = new THREE.HemisphereLight(0x4488bb, 0x002244, 4.0);
 fillLight1.position.set(2, 1, 1);
 scene.add(fillLight1);
 
