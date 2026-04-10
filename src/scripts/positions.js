@@ -20,7 +20,7 @@
 // Beyond that, no further copies of works of art may be made or
 // distributed on this website without written permission.
 
-import * as THREE from "three";
+import * as THREE from 'three';
 
 // Head positions
 export const headPositions = [

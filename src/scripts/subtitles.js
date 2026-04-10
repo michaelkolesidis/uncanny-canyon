@@ -21,8 +21,8 @@
 // distributed on this website without written permission.
 
 export const Subtitles = () => {
-  const subtitles = document.createElement("div");
-  subtitles.setAttribute("id", "subtitles");
+  const subtitles = document.createElement('div');
+  subtitles.setAttribute('id', 'subtitles');
   subtitles.innerHTML = ``;
 
   return subtitles;

@@ -24,16 +24,16 @@ let mainMenu;
 let instructions;
 
 export const Menu = () => {
-  mainMenu = document.createElement("div");
-  mainMenu.setAttribute("id", "main-menu");
+  mainMenu = document.createElement('div');
+  mainMenu.setAttribute('id', 'main-menu');
 
-  const heading = document.createElement("div");
-  heading.setAttribute("id", "heading");
-  heading.innerHTML = "uncanny<br>canyon";
+  const heading = document.createElement('div');
+  heading.setAttribute('id', 'heading');
+  heading.innerHTML = 'uncanny<br>canyon';
   mainMenu.appendChild(heading);
 
-  const credits = document.createElement("div");
-  credits.setAttribute("id", "credits");
+  const credits = document.createElement('div');
+  credits.setAttribute('id', 'credits');
   credits.innerHTML = `<a id="credits" href="https://michaelkolesidis.com" target="_blank">michael kolesidis</a>`;
   mainMenu.appendChild(credits);
 
@@ -41,8 +41,8 @@ export const Menu = () => {
 };
 
 export const Instructions = () => {
-  instructions = document.createElement("div");
-  instructions.setAttribute("id", "instructions");
+  instructions = document.createElement('div');
+  instructions.setAttribute('id', 'instructions');
   instructions.innerHTML += `Please use headphones for a better experience. `;
   instructions.innerHTML += `Try pressing the WASD keys to move forward, left, back, and right respectively. You can also use the ARROW keys. `;
   instructions.innerHTML += `You can look around by moving your MOUSE around (left-click to lock cursor, ESC to unlock). `;

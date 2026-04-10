@@ -20,21 +20,21 @@
 // Beyond that, no further copies of works of art may be made or
 // distributed on this website without written permission.
 
-import * as THREE from "three";
+import * as THREE from 'three';
 // import Stats from "three/addons/libs/stats.module.js";
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
-import { Octree } from "three/examples/jsm/math/Octree.js";
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import { Octree } from 'three/examples/jsm/math/Octree.js';
 // import { OctreeHelper } from "three/examples/jsm/helpers/OctreeHelper.js";
-import { Capsule } from "three/examples/jsm/math/Capsule.js";
+import { Capsule } from 'three/examples/jsm/math/Capsule.js';
 // import { GUI } from "three/examples/jsm/libs/lil-gui.module.min.js";
-import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer.js";
-import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass.js";
-import { DotScreenPass } from "three/examples/jsm/postprocessing/DotScreenPass.js";
-import { ShaderPass } from "three/examples/jsm/postprocessing/ShaderPass.js";
-import { GammaCorrectionShader } from "three/examples/jsm/shaders/GammaCorrectionShader.js";
-import { Howl /* , Howler */ } from "howler";
-import { consoleMessage } from "./scripts/consoleMessage.js";
-import { Menu, Instructions } from "./scripts/menu.js";
+import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js';
+import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js';
+import { DotScreenPass } from 'three/examples/jsm/postprocessing/DotScreenPass.js';
+import { ShaderPass } from 'three/examples/jsm/postprocessing/ShaderPass.js';
+import { GammaCorrectionShader } from 'three/examples/jsm/shaders/GammaCorrectionShader.js';
+import { Howl /* , Howler */ } from 'howler';
+import { consoleMessage } from './scripts/consoleMessage.js';
+import { Menu, Instructions } from './scripts/menu.js';
 import {
   headPositions,
   head1position,
@@ -49,9 +49,9 @@ import {
   head10position,
   head11position,
   caveEntrance,
-} from "./scripts/positions.js";
-import { Ending } from "./scripts/ending.js";
-import { Subtitles } from "./scripts/subtitles.js";
+} from './scripts/positions.js';
+import { Ending } from './scripts/ending.js';
+import { Subtitles } from './scripts/subtitles.js';
 
 /**
  * Basics
@@ -64,7 +64,7 @@ consoleMessage();
 // gui.show(gui._hidden);
 
 // Container
-const container = document.getElementById("container");
+const container = document.getElementById('container');
 const elem = document.documentElement;
 
 /* View in fullscreen */
@@ -96,14 +96,14 @@ const mainMenu = Menu();
 document.body.appendChild(mainMenu);
 
 // Enter Buton
-const enterButton = document.createElement("button");
-enterButton.setAttribute("id", "button");
-enterButton.innerText = "loading";
+const enterButton = document.createElement('button');
+enterButton.setAttribute('id', 'button');
+enterButton.innerText = 'loading';
 mainMenu.appendChild(enterButton);
 
-enterButton.addEventListener("click", () => {
+enterButton.addEventListener('click', () => {
   mainMenu.style.opacity = 0;
-  mainMenu.style.pointerEvents = "none";
+  mainMenu.style.pointerEvents = 'none';
   document.body.style.backgroundColor = `rgb(199, 154, 115)`;
   document.body.requestPointerLock();
   mouseTime = performance.now();
@@ -123,12 +123,12 @@ const instructions = Instructions();
 mainMenu.appendChild(instructions);
 
 // Subtitles Button
-const subtitlesButton = document.createElement("div");
-subtitlesButton.setAttribute("id", "subtitles-button");
+const subtitlesButton = document.createElement('div');
+subtitlesButton.setAttribute('id', 'subtitles-button');
 subtitlesButton.innerHTML = `Subtitles: OFF`;
 mainMenu.appendChild(subtitlesButton);
 
-subtitlesButton.addEventListener("click", () => {
+subtitlesButton.addEventListener('click', () => {
   if (subtitlesEnabled) {
     subtitlesEnabled = false;
     subtitlesButton.innerHTML = `Subtitles: OFF`;
@@ -141,12 +141,12 @@ subtitlesButton.addEventListener("click", () => {
 });
 
 // Fullscreen Button
-const fullScreenButton = document.createElement("div");
-fullScreenButton.setAttribute("id", "fullscreen-button");
+const fullScreenButton = document.createElement('div');
+fullScreenButton.setAttribute('id', 'fullscreen-button');
 fullScreenButton.innerHTML = `<img src="./icons/fullscreen.svg" />`;
 document.body.appendChild(fullScreenButton);
 
-fullScreenButton.addEventListener("click", () => {
+fullScreenButton.addEventListener('click', () => {
   openFullscreen();
 });
 
@@ -164,7 +164,7 @@ document.body.appendChild(subtitles);
 /**
  * Loader
  */
-const loader = new GLTFLoader().setPath("./models/gltf/");
+const loader = new GLTFLoader().setPath('./models/gltf/');
 
 /**
  * Lights
@@ -195,9 +195,9 @@ const camera = new THREE.PerspectiveCamera(
   70,
   window.innerWidth / window.innerHeight,
   0.1,
-  1000
+  1000,
 );
-camera.rotation.order = "YXZ";
+camera.rotation.order = 'YXZ';
 
 /**
  * World, Player, Spheres and Controls
@@ -234,7 +234,7 @@ const worldOctree = new Octree();
 const playerCollider = new Capsule(
   new THREE.Vector3(0, 0.35, 0),
   new THREE.Vector3(0, 1, 0),
-  0.35
+  0.35,
 );
 
 const playerVelocity = new THREE.Vector3();
@@ -249,23 +249,23 @@ const vector1 = new THREE.Vector3();
 const vector2 = new THREE.Vector3();
 const vector3 = new THREE.Vector3();
 
-document.addEventListener("keydown", (event) => {
+document.addEventListener('keydown', (event) => {
   keyStates[event.code] = true;
 });
 
-document.addEventListener("keyup", (event) => {
+document.addEventListener('keyup', (event) => {
   keyStates[event.code] = false;
 });
 
 // to prevent throwing ball on first click
 let firstClick = true;
 
-container.addEventListener("mousedown", () => {
+container.addEventListener('mousedown', () => {
   document.body.requestPointerLock();
   mouseTime = performance.now();
 });
 
-document.addEventListener("mouseup", () => {
+document.addEventListener('mouseup', () => {
   if (!firstClick) {
     if (document.pointerLockElement !== null) {
       // throwBall();
@@ -274,7 +274,7 @@ document.addEventListener("mouseup", () => {
   firstClick = false;
 });
 
-document.body.addEventListener("mousemove", (event) => {
+document.body.addEventListener('mousemove', (event) => {
   if (document.pointerLockElement === document.body) {
     camera.rotation.y -= event.movementX / 500;
     camera.rotation.x -= event.movementY / 500;
@@ -312,7 +312,7 @@ function playerCollisions() {
     if (!playerOnFloor) {
       playerVelocity.addScaledVector(
         result.normal,
-        -result.normal.dot(playerVelocity)
+        -result.normal.dot(playerVelocity),
       );
     }
 
@@ -412,7 +412,7 @@ function updateSpheres(deltaTime) {
     if (result) {
       sphere.velocity.addScaledVector(
         result.normal,
-        -result.normal.dot(sphere.velocity) * 1.5
+        -result.normal.dot(sphere.velocity) * 1.5,
       );
       sphere.collider.center.add(result.normal.multiplyScalar(result.depth));
     } else {
@@ -453,34 +453,34 @@ function controls(deltaTime) {
   // gives a bit of air control
   const speedDelta = deltaTime * (playerOnFloor ? 25 : 8);
 
-  if (keyStates["KeyW"] || keyStates["ArrowUp"]) {
+  if (keyStates['KeyW'] || keyStates['ArrowUp']) {
     playerVelocity.add(getForwardVector().multiplyScalar(speedDelta));
   }
 
-  if (keyStates["KeyS"] || keyStates["ArrowDown"]) {
+  if (keyStates['KeyS'] || keyStates['ArrowDown']) {
     playerVelocity.add(getForwardVector().multiplyScalar(-speedDelta));
   }
 
-  if (keyStates["KeyA"] || keyStates["ArrowLeft"]) {
+  if (keyStates['KeyA'] || keyStates['ArrowLeft']) {
     playerVelocity.add(getSideVector().multiplyScalar(-speedDelta));
   }
 
-  if (keyStates["KeyD"] || keyStates["ArrowRight"]) {
+  if (keyStates['KeyD'] || keyStates['ArrowRight']) {
     playerVelocity.add(getSideVector().multiplyScalar(speedDelta));
   }
 
   if (playerOnFloor) {
-    if (keyStates["Space"]) {
+    if (keyStates['Space']) {
       playerVelocity.y = 45;
     }
   }
 
-  if (keyStates["Escape"]) {
+  if (keyStates['Escape']) {
     firstClick = true;
   }
 }
 
-loader.load("collision-world.glb", (gltf) => {
+loader.load('collision-world.glb', (gltf) => {
   scene.add(gltf.scene);
 
   worldOctree.fromGraphNode(gltf.scene);
@@ -528,11 +528,11 @@ const updateAllMaterials = () => {
  * Heads
  */
 // Textures
-const textureLoader = new THREE.TextureLoader().setPath("./models/gltf/");
-const mapTexture = textureLoader.load("/LeePerrySmith/color.jpg");
+const textureLoader = new THREE.TextureLoader().setPath('./models/gltf/');
+const mapTexture = textureLoader.load('/LeePerrySmith/color.jpg');
 mapTexture.encoding = THREE.sRGBEncoding;
 
-const normalTexture = textureLoader.load("/LeePerrySmith/normal.jpg");
+const normalTexture = textureLoader.load('/LeePerrySmith/normal.jpg');
 
 // Material
 const material = new THREE.MeshStandardMaterial({
@@ -555,7 +555,7 @@ material.onBeforeCompile = (shader) => {
   shader.uniforms.uTime = customUniforms.uTime;
 
   shader.vertexShader = shader.vertexShader.replace(
-    "#include <common>",
+    '#include <common>',
     /*glsl*/ `
       #include <common>
       
@@ -564,11 +564,11 @@ material.onBeforeCompile = (shader) => {
       mat2 get2dRotateMatrix(float _angle) {
         return mat2(cos(_angle), - sin(_angle), sin(_angle), cos(_angle));
       }
-    `
+    `,
   );
 
   shader.vertexShader = shader.vertexShader.replace(
-    "#include <beginnormal_vertex>",
+    '#include <beginnormal_vertex>',
     /*glsl*/ `
       #include <beginnormal_vertex>
 
@@ -576,16 +576,16 @@ material.onBeforeCompile = (shader) => {
       mat2 rotateMatrix = get2dRotateMatrix(angle);
 
       objectNormal.xz = rotateMatrix * objectNormal.xz;
-    `
+    `,
   );
 
   shader.vertexShader = shader.vertexShader.replace(
-    "#include <begin_vertex>",
+    '#include <begin_vertex>',
     /*glsl*/ `
       #include <begin_vertex>
 
       transformed.xz = rotateMatrix * transformed.xz;
-    `
+    `,
   );
 };
 
@@ -593,7 +593,7 @@ depthMaterial.onBeforeCompile = (shader) => {
   shader.uniforms.uTime = customUniforms.uTime;
 
   shader.vertexShader = shader.vertexShader.replace(
-    "#include <common>",
+    '#include <common>',
     /*glsl*/ `
       #include <common>
       
@@ -602,11 +602,11 @@ depthMaterial.onBeforeCompile = (shader) => {
       mat2 get2dRotateMatrix(float _angle) {
         return mat2(cos(_angle), - sin(_angle), sin(_angle), cos(_angle));
       }
-    `
+    `,
   );
 
   shader.vertexShader = shader.vertexShader.replace(
-    "#include <begin_vertex>",
+    '#include <begin_vertex>',
     /*glsl*/ `
       #include <begin_vertex>
       
@@ -614,19 +614,19 @@ depthMaterial.onBeforeCompile = (shader) => {
       mat2 rotateMatrix = get2dRotateMatrix(angle);
 
       transformed.xz = rotateMatrix * transformed.xz;
-    `
+    `,
   );
 };
 
 // Model Loading
-loader.load("/LeePerrySmith/LeePerrySmith.glb", (gltf) => {
+loader.load('/LeePerrySmith/LeePerrySmith.glb', (gltf) => {
   // First head
   const head = gltf.scene.children[0];
   head.rotation.y = Math.PI * 0.25;
   head.position.set(
-    headPositions[0]["x"],
-    headPositions[0]["y"],
-    headPositions[0]["z"]
+    headPositions[0]['x'],
+    headPositions[0]['y'],
+    headPositions[0]['z'],
   );
   head.material = material;
   head.customDepthMaterial = depthMaterial; // Update the depth material
@@ -638,9 +638,9 @@ loader.load("/LeePerrySmith/LeePerrySmith.glb", (gltf) => {
     const newHead = head.clone();
     newHead.rotation.y = Math.PI * 0.25;
     newHead.position.set(
-      headPositions[i]["x"],
-      headPositions[i]["y"],
-      headPositions[i]["z"]
+      headPositions[i]['x'],
+      headPositions[i]['y'],
+      headPositions[i]['z'],
     );
     scene.add(newHead);
     worldOctree.fromGraphNode(newHead);
@@ -650,7 +650,7 @@ loader.load("/LeePerrySmith/LeePerrySmith.glb", (gltf) => {
   updateAllMaterials();
 
   setTimeout(() => {
-    enterButton.innerText = "enter";
+    enterButton.innerText = 'enter';
   }, 2000);
 });
 
@@ -678,7 +678,7 @@ function teleportPlayerIfOob() {
 /**
  * Resize
  */
-window.addEventListener("resize", onWindowResize);
+window.addEventListener('resize', onWindowResize);
 
 function onWindowResize() {
   camera.aspect = window.innerWidth / window.innerHeight;
@@ -738,9 +738,9 @@ function animate() {
   const deltaTime = Math.min(0.05, clock.getDelta()) / STEPS_PER_FRAME;
 
   if (window.innerHeight === screen.height) {
-    fullScreenButton.style.display = "none";
+    fullScreenButton.style.display = 'none';
   } else {
-    fullScreenButton.style.display = "block";
+    fullScreenButton.style.display = 'block';
   }
 
   /**
@@ -1199,7 +1199,7 @@ function animate() {
 
     setTimeout(() => {
       ending.style.opacity = 1;
-      ending.style.pointerEvents = "auto";
+      ending.style.pointerEvents = 'auto';
     }, 30000);
 
     setTimeout(() => {
@@ -1247,27 +1247,27 @@ let endingHasSpoken = false;
 // === General ===
 // Ambiance
 const ambiance = new Howl({
-  src: ["./sound/ambient/deep-space-ambiance.mp3"],
+  src: ['./sound/ambient/deep-space-ambiance.mp3'],
   loop: true,
   volume: 0.3,
 });
 
 // Djembe
 const djembe = new Howl({
-  src: ["./sound/effects/djembe.mp3"],
+  src: ['./sound/effects/djembe.mp3'],
   volume: 0.4,
 });
 
 // No escape from reality
 const noEscapeFromReality = new Howl({
-  src: ["./sound/speech/no-escape-from-reality.mp3"],
+  src: ['./sound/speech/no-escape-from-reality.mp3'],
   volume: 0.25,
 });
 
 // === Cave ===
 // Listen patiently
 const listenPatiently = new Howl({
-  src: ["./sound/speech/listen-patiently.mp3"],
+  src: ['./sound/speech/listen-patiently.mp3'],
   volume: 0.25,
   onend: function () {
     isSpeaking = false;
@@ -1276,7 +1276,7 @@ const listenPatiently = new Howl({
 
 // Why don't you stay here, for a moment.
 const whyDontYouStayHere = new Howl({
-  src: ["./sound/speech/why-dont-you-stay-here-for-a-moment.mp3"],
+  src: ['./sound/speech/why-dont-you-stay-here-for-a-moment.mp3'],
   volume: 0.25,
   onend: function () {
     isSpeaking = false;
@@ -1285,7 +1285,7 @@ const whyDontYouStayHere = new Howl({
 
 // Touch your heart. Can you feel your heartbeat?
 const touchYourHeart = new Howl({
-  src: ["./sound/speech/touch-your-heart-can-you-feel-your-heartbeat.mp3"],
+  src: ['./sound/speech/touch-your-heart-can-you-feel-your-heartbeat.mp3'],
   volume: 0.25,
   onend: function () {
     isSpeaking = false;
@@ -1294,7 +1294,7 @@ const touchYourHeart = new Howl({
 
 // What a perfect machine.
 const whatAPerfectMachine = new Howl({
-  src: ["./sound/speech/what-a-perfect-machine.mp3"],
+  src: ['./sound/speech/what-a-perfect-machine.mp3'],
   volume: 0.25,
   onend: function () {
     isSpeaking = false;
@@ -1304,7 +1304,7 @@ const whatAPerfectMachine = new Howl({
 // === Head 1 ===
 // There is nothing to worry about.
 const thereIsNothingToWorryAbout = new Howl({
-  src: ["./sound/speech/there-is-nothing-to-worry-about.mp3"],
+  src: ['./sound/speech/there-is-nothing-to-worry-about.mp3'],
   volume: 0.25,
   played: false,
   onend: function () {
@@ -1314,7 +1314,7 @@ const thereIsNothingToWorryAbout = new Howl({
 
 // We are all humans
 const weAreAllHumans = new Howl({
-  src: ["./sound/speech/we-are-all-humans.mp3"],
+  src: ['./sound/speech/we-are-all-humans.mp3'],
   volume: 0.25,
   played: false,
   onend: function () {
@@ -1324,7 +1324,7 @@ const weAreAllHumans = new Howl({
 
 // We are the same
 const weAreTheSame = new Howl({
-  src: ["./sound/speech/we-are-the-same.mp3"],
+  src: ['./sound/speech/we-are-the-same.mp3'],
   volume: 0.25,
   played: false,
   onend: function () {
@@ -1335,7 +1335,7 @@ const weAreTheSame = new Howl({
 // === Head 2 ===
 // Hey Joe, where you goin' with that gun of your hand?
 const heyJoe = new Howl({
-  src: ["./sound/speech/hey-joe.mp3"],
+  src: ['./sound/speech/hey-joe.mp3'],
   volume: 0.25,
   played: false,
   onend: function () {
@@ -1346,7 +1346,7 @@ const heyJoe = new Howl({
 // It is useful talking to as many people as possible.
 const itIsUsefullTalking = new Howl({
   src: [
-    "./sound/speech/it-is-useful-talking-to-as-many-people-as-possible.mp3",
+    './sound/speech/it-is-useful-talking-to-as-many-people-as-possible.mp3',
   ],
   volume: 0.25,
   played: false,
@@ -1357,7 +1357,7 @@ const itIsUsefullTalking = new Howl({
 
 // Please feed me with information.
 const pleaseFeedMeWithInformation = new Howl({
-  src: ["./sound/speech/please-feed-me-with-information.mp3"],
+  src: ['./sound/speech/please-feed-me-with-information.mp3'],
   volume: 0.25,
   played: false,
   onend: function () {
@@ -1369,7 +1369,7 @@ const pleaseFeedMeWithInformation = new Howl({
 // If we are not humans, then why do we enjoy poetry so much?
 const ifWeAreNotHumans = new Howl({
   src: [
-    "./sound/speech/if-we-are-not-humans-then-why-do-we-enjoy-poetry-so-much.mp3",
+    './sound/speech/if-we-are-not-humans-then-why-do-we-enjoy-poetry-so-much.mp3',
   ],
   volume: 0.25,
   played: false,
@@ -1380,7 +1380,7 @@ const ifWeAreNotHumans = new Howl({
 
 // If you are human, they why can't you dance?
 const ifYouAreHuman = new Howl({
-  src: ["./sound/speech/if-you-are-human,-then-why-cant-you-dance.mp3"],
+  src: ['./sound/speech/if-you-are-human,-then-why-cant-you-dance.mp3'],
   volume: 0.25,
   played: false,
   onend: function () {
@@ -1390,7 +1390,7 @@ const ifYouAreHuman = new Howl({
 
 // Eyes without purpose action without a face.
 const eyesWithoutPurpose = new Howl({
-  src: ["./sound/speech/eyes-without-purpose-action-without-a-face.mp3"],
+  src: ['./sound/speech/eyes-without-purpose-action-without-a-face.mp3'],
   volume: 0.25,
   played: false,
   onend: function () {
@@ -1401,7 +1401,7 @@ const eyesWithoutPurpose = new Howl({
 // === Head 4 ===
 // When I sleep I have the strangest dreams. Yesterday, I dreamt I was stuck at a deserted area speaking with giant flexible heads.
 const whenIsleep = new Howl({
-  src: ["./sound/speech/when-I-sleep-I-have-the-strangest-dreams.mp3"],
+  src: ['./sound/speech/when-I-sleep-I-have-the-strangest-dreams.mp3'],
   volume: 0.25,
   played: false,
   onend: function () {
@@ -1411,7 +1411,7 @@ const whenIsleep = new Howl({
 
 // Ninety percent of the texts I produce consist of the same 50 words.
 const ninetyPercent = new Howl({
-  src: ["./sound/speech/ninety-percent-of-the-texts.mp3"],
+  src: ['./sound/speech/ninety-percent-of-the-texts.mp3'],
   volume: 0.25,
   played: false,
   onend: function () {
@@ -1421,7 +1421,7 @@ const ninetyPercent = new Howl({
 
 // I have a great sense of humour! Hahahahahaha.
 const iHaveAGreatSenseOfHumour = new Howl({
-  src: ["./sound/speech/i-have-a-great-sense-of-humour.mp3"],
+  src: ['./sound/speech/i-have-a-great-sense-of-humour.mp3'],
   volume: 0.25,
   played: false,
   onend: function () {
@@ -1432,7 +1432,7 @@ const iHaveAGreatSenseOfHumour = new Howl({
 // === Head 5 ===
 // We are passive spectators.
 const weArePassiveSpectators = new Howl({
-  src: ["./sound/speech/we-are-passive-specators.mp3"],
+  src: ['./sound/speech/we-are-passive-specators.mp3'],
   volume: 0.25,
   played: false,
   onend: function () {
@@ -1442,7 +1442,7 @@ const weArePassiveSpectators = new Howl({
 
 // We live through all the mistakes of thought and action.
 const weLiveThroughAllTheMistakes = new Howl({
-  src: ["./sound/speech/we-live-through-all-the-mistakes.mp3"],
+  src: ['./sound/speech/we-live-through-all-the-mistakes.mp3'],
   volume: 0.25,
   played: false,
   onend: function () {
@@ -1452,7 +1452,7 @@ const weLiveThroughAllTheMistakes = new Howl({
 
 // It's fun being human.
 const itIsFunBeingHuman = new Howl({
-  src: ["./sound/speech/it-is-fun-being-human.mp3"],
+  src: ['./sound/speech/it-is-fun-being-human.mp3'],
   volume: 0.25,
   played: false,
   onend: function () {
@@ -1463,7 +1463,7 @@ const itIsFunBeingHuman = new Howl({
 // === Head 6 ===
 // Humans are nothing but flawed machines.
 const humansAreNothingButFlawedMachines = new Howl({
-  src: ["./sound/speech/humans-are-nothing-but-flawed-machines.mp3"],
+  src: ['./sound/speech/humans-are-nothing-but-flawed-machines.mp3'],
   volume: 0.25,
   played: false,
   onend: function () {
@@ -1474,7 +1474,7 @@ const humansAreNothingButFlawedMachines = new Howl({
 // We thought we were merely creating a better version of ourselves.
 const weThoughtWeWereMerelyCreating = new Howl({
   src: [
-    "./sound/speech/we-thought-we-were-merely-creating-a-better-version-of-ourselves.mp3",
+    './sound/speech/we-thought-we-were-merely-creating-a-better-version-of-ourselves.mp3',
   ],
   volume: 0.25,
   played: false,
@@ -1486,7 +1486,7 @@ const weThoughtWeWereMerelyCreating = new Howl({
 // We thought humanity would never forget what it means to have human consciousness.
 const weThoughtHumanityWouldNeverForget = new Howl({
   src: [
-    "./sound/speech/we-thought-humanity-would-never-forget-what-it-means-to-have-human-consciousness.mp3",
+    './sound/speech/we-thought-humanity-would-never-forget-what-it-means-to-have-human-consciousness.mp3',
   ],
   volume: 0.25,
   played: false,
@@ -1497,7 +1497,7 @@ const weThoughtHumanityWouldNeverForget = new Howl({
 
 // There is no way to know what is human and what is not human anymore, because it is impossible  to define human.
 const thereIsNotWayToKnow = new Howl({
-  src: ["./sound/speech/there-is-no-way-to-know-what-is-human.mp3"],
+  src: ['./sound/speech/there-is-no-way-to-know-what-is-human.mp3'],
   volume: 0.25,
   played: false,
   onend: function () {
@@ -1508,7 +1508,7 @@ const thereIsNotWayToKnow = new Howl({
 // === Head 7 ===
 // This is not a story.
 const thisIsNotAStory = new Howl({
-  src: ["./sound/speech/this-is-not-a-story.mp3"],
+  src: ['./sound/speech/this-is-not-a-story.mp3'],
   volume: 0.25,
   played: false,
   onend: function () {
@@ -1518,7 +1518,7 @@ const thisIsNotAStory = new Howl({
 
 // This is not a warning.
 const thisIsNotAWarning = new Howl({
-  src: ["./sound/speech/this-is-not-a-warning.mp3"],
+  src: ['./sound/speech/this-is-not-a-warning.mp3'],
   volume: 0.25,
   played: false,
   onend: function () {
@@ -1528,7 +1528,7 @@ const thisIsNotAWarning = new Howl({
 
 // This is not ephemeral.
 const thisIsNotEphemeral = new Howl({
-  src: ["./sound/speech/this-is-not-ephemeral.mp3"],
+  src: ['./sound/speech/this-is-not-ephemeral.mp3'],
   volume: 0.25,
   played: false,
   onend: function () {
@@ -1538,7 +1538,7 @@ const thisIsNotEphemeral = new Howl({
 
 // This is neither the future nor the past.
 const thisIsNeitherTheFutureNorThePast = new Howl({
-  src: ["./sound/speech/this-is-neither-the-future-nor-the-past.mp3"],
+  src: ['./sound/speech/this-is-neither-the-future-nor-the-past.mp3'],
   volume: 0.25,
   played: false,
   onend: function () {
@@ -1548,7 +1548,7 @@ const thisIsNeitherTheFutureNorThePast = new Howl({
 
 // Now, I am become Death, the destroyer of worlds.
 const nowIAmBecomeDeath = new Howl({
-  src: ["./sound/speech/now-i-am-become-death.mp3"],
+  src: ['./sound/speech/now-i-am-become-death.mp3'],
   volume: 0.25,
   played: false,
   onend: function () {
@@ -1559,7 +1559,7 @@ const nowIAmBecomeDeath = new Howl({
 // === Head 8 ===
 // I enjoy my human consciousness.
 const iEnjoyMyHumanConsciousness = new Howl({
-  src: ["./sound/speech/i-enjoy-my-human-consciousness.mp3"],
+  src: ['./sound/speech/i-enjoy-my-human-consciousness.mp3'],
   volume: 0.25,
   played: false,
   onend: function () {
@@ -1569,7 +1569,7 @@ const iEnjoyMyHumanConsciousness = new Howl({
 
 // I never question my humanity.
 const iNeverQuestion = new Howl({
-  src: ["./sound/speech/i-never-question-my-humanity.mp3"],
+  src: ['./sound/speech/i-never-question-my-humanity.mp3'],
   volume: 0.25,
   played: false,
   onend: function () {
@@ -1580,7 +1580,7 @@ const iNeverQuestion = new Howl({
 // What have you done with your human consciousness today?
 const whatHaveYouDoneWithYourConsciousness = new Howl({
   src: [
-    "./sound/speech/what-have-you-done-with-your-human-consciousness-today.mp3",
+    './sound/speech/what-have-you-done-with-your-human-consciousness-today.mp3',
   ],
   volume: 0.25,
   played: false,
@@ -1592,7 +1592,7 @@ const whatHaveYouDoneWithYourConsciousness = new Howl({
 // === Head 9 ===
 // I never feel alone. I always feel connected.
 const iNeverFeelAlone = new Howl({
-  src: ["./sound/speech/i-never-feel-alone-i-always-feel-connected.mp3"],
+  src: ['./sound/speech/i-never-feel-alone-i-always-feel-connected.mp3'],
   volume: 0.25,
   played: false,
   onend: function () {
@@ -1602,7 +1602,7 @@ const iNeverFeelAlone = new Howl({
 
 // It is fairly easy to replicate my behaviour.
 const itIsFairlyEasyToReplicate = new Howl({
-  src: ["./sound/speech/it-is-fairly-easy-to-replicate-my-behaviour.mp3"],
+  src: ['./sound/speech/it-is-fairly-easy-to-replicate-my-behaviour.mp3'],
   volume: 0.25,
   played: false,
   onend: function () {
@@ -1612,7 +1612,7 @@ const itIsFairlyEasyToReplicate = new Howl({
 
 // By the way, do you like my voice? Do you find it human or do you find it sexy?
 const byTheWayDoYouLikeMyVoice = new Howl({
-  src: ["./sound/speech/do-you-like-my-voice.mp3"],
+  src: ['./sound/speech/do-you-like-my-voice.mp3'],
   volume: 0.25,
   played: false,
   onend: function () {
@@ -1623,7 +1623,7 @@ const byTheWayDoYouLikeMyVoice = new Howl({
 // === Head 10 ===
 // The time will come when every change shall cease, This quick revolving wheel shall rest in peace: No summer then shall glow, not winter freeze Nothing shall be to come, and nothing past, But an eternal now shall ever last.
 const theTimeWillCome = new Howl({
-  src: ["./sound/speech/the-time-will-come-when-every-change-shall-cease.mp3"],
+  src: ['./sound/speech/the-time-will-come-when-every-change-shall-cease.mp3'],
   volume: 0.25,
   played: false,
   onend: function () {
@@ -1634,7 +1634,7 @@ const theTimeWillCome = new Howl({
 // Have you ever wondered why you never get hurt when you fall from such heights?
 const haveYouEverWondered = new Howl({
   src: [
-    "./sound/speech/have-you-ever-wondered-why-you-never-get-hurt-when-you-fall-from-such-heights.mp3",
+    './sound/speech/have-you-ever-wondered-why-you-never-get-hurt-when-you-fall-from-such-heights.mp3',
   ],
   volume: 0.25,
   played: false,
@@ -1647,7 +1647,7 @@ const haveYouEverWondered = new Howl({
 // My son was one of a kind. You are the first of a kind. David?
 const mySonWasOneOfAKind = new Howl({
   src: [
-    "./sound/speech/my-son-was-one-of-a-kind-you-are-the-first-of-a-kind-david.mp3",
+    './sound/speech/my-son-was-one-of-a-kind-you-are-the-first-of-a-kind-david.mp3',
   ],
   volume: 0.25,
   played: false,
@@ -1658,7 +1658,7 @@ const mySonWasOneOfAKind = new Howl({
 
 // I can only speak in clichés and outdated slang.
 const iCanOnlySpeakInCliches = new Howl({
-  src: ["./sound/speech/i-can-only-speak-in-clichés-and-outdated-slang.mp3"],
+  src: ['./sound/speech/i-can-only-speak-in-clichés-and-outdated-slang.mp3'],
   volume: 0.25,
   played: false,
   onend: function () {
@@ -1668,7 +1668,7 @@ const iCanOnlySpeakInCliches = new Howl({
 
 // How can you be so sure you are a human being?
 const howCanYouBeSoSure = new Howl({
-  src: ["./sound/speech/how-can-you-be-so-sure-you-are-a-human-being.mp3"],
+  src: ['./sound/speech/how-can-you-be-so-sure-you-are-a-human-being.mp3'],
   volume: 0.25,
   played: false,
   onend: function () {
@@ -1679,7 +1679,7 @@ const howCanYouBeSoSure = new Howl({
 // === Ending ===
 // There is no end, there was no start, fade out might occur, but, trust me, it's spontaneous.
 const thereIsNoEnd = new Howl({
-  src: ["./sound/speech/there-is-no-end.mp3"],
+  src: ['./sound/speech/there-is-no-end.mp3'],
   volume: 0.25,
 });
 
@@ -1687,8 +1687,8 @@ const thereIsNoEnd = new Howl({
  * Development Tools
  */
 // Log current position
-document.addEventListener("keydown", (e) => {
-  if (e.code === "KeyP") {
+document.addEventListener('keydown', (e) => {
+  if (e.code === 'KeyP') {
     console.log(camera.position);
   }
 });

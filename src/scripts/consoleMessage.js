@@ -21,21 +21,21 @@
 // distributed on this website without written permission.
 
 const titleStyles = [
-  "background: rgb(0, 0, 0)",
-  "color: rgb(255, 255, 255)",
-  "font-weight: 600; font-size: 16px",
-].join(";");
+  'background: rgb(0, 0, 0)',
+  'color: rgb(255, 255, 255)',
+  'font-weight: 600; font-size: 16px',
+].join(';');
 
 const styles = [
-  "background: rgb(0, 0, 0)",
-  "color: rgb(255, 255, 255)",
-  "font-weight: 600; font-size: 13px",
-].join(";");
+  'background: rgb(0, 0, 0)',
+  'color: rgb(255, 255, 255)',
+  'font-weight: 600; font-size: 13px',
+].join(';');
 
 export const consoleMessage = () => {
-  console.log("%c uncanny cannyon by michael kolesidis ", titleStyles);
+  console.log('%c uncanny cannyon by michael kolesidis ', titleStyles);
   console.log(
     `%c Since you are here, I would kindly ask you to contact me\nat michael.kolesidis (at) gmail.com in case you encounter\nany problems (bugs, performance issues, other issues etc.)\nduring the exprience. Cheers! `,
-    styles
+    styles,
   );
 };

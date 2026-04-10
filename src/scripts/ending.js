@@ -21,20 +21,21 @@
 // distributed on this website without written permission.
 
 export const Ending = () => {
-  const ending = document.createElement("div");
-  ending.setAttribute("id", "ending");
-  ending.style.pointerEvents = "none";
+  const ending = document.createElement('div');
+  ending.setAttribute('id', 'ending');
+  ending.style.pointerEvents = 'none';
 
-  const message = document.createElement("div");
-  message.setAttribute("id", "instructions");
-  message.innerText = "uncanny canyon was created by michael kolesidis for the athens digital arts festival 2023";
+  const message = document.createElement('div');
+  message.setAttribute('id', 'instructions');
+  message.innerText =
+    'uncanny canyon was created by michael kolesidis for the athens digital arts festival 2023';
   ending.appendChild(message);
 
-  const restartButton = document.createElement("button");
-  restartButton.setAttribute("id", "button");
-  restartButton.innerText = "restart";
+  const restartButton = document.createElement('button');
+  restartButton.setAttribute('id', 'button');
+  restartButton.innerText = 'restart';
   ending.appendChild(restartButton);
-  restartButton.addEventListener("click", () => {
+  restartButton.addEventListener('click', () => {
     window.location.reload();
   });
 
