@@ -6,7 +6,11 @@ by michael kolesidis
 
 **Featured in Athens Digital Arts Festival 2023**
 
-[**uncanny canyon in ADAF**](https://online.adaf.gr/video/uncanny-canyon/)
+[**ADAF 2023 Program**](https://2023.adaf.gr/wp-content/uploads/2023/05/2023.adaf.gr_Program.pdf)  
+
+[**Original ADAF Page**](https://online.adaf.gr/video/uncanny-canyon/)  
+
+[**Archived ADAF Page**](https://web.archive.org/web/20240811082549/https://online.adaf.gr/video/uncanny-canyon/)
 
 ## Summary
 
@@ -32,9 +36,9 @@ The piece explores redefinitions and reinterpretations of humanness and non-huma
 
 Michael Kolesidis is a multidisciplinary new media artist, with a background in creative development, performance art and computer science. He works at the intersection of performativity and digitality, attempting to blend art with digital technology with varying degrees of success. Nowadays, he explores graphics programming and a multitude of new media technologies to create web art, audiovisual art and physical installations. He has lived, worked, and studied in Greece, Spain, and the UK, and has presented his work in Greece and the UK.
 
-## 💖 Support the Project
+## Licence
 
-Thank you so much for your interest in my project! If you want to go a step further and support my work, buy me a coffee:
+<a href="https://www.gnu.org/licenses/agpl-3.0.html"><img src="./public/assets/icons/agplv3.svg" height="80px" /></a>
 
-<a href='https://ko-fi.com/michaelkolesidis' target='_blank'><img src='https://cdn.ko-fi.com/cdn/kofi1.png' style='border:0px;height:45px;' alt='Buy Me a Coffee at ko-fi.com' /></a>
-
+Copyright (c) Michael Kolesidis  
+Licensed under the [GNU Affero General Public License v3.0](https://www.gnu.org/licenses/agpl-3.0.html).  
